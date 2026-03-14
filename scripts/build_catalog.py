@@ -7,9 +7,12 @@ from datetime import UTC, datetime
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
+from pypdf import PdfReader
+
 
 ROOT = Path(__file__).resolve().parent.parent
 WORKBOOK_PATH = ROOT / "exercise handbook solutions.xlsx"
+PDF_PATH = ROOT / "exercise_handbook_2023_24.pdf"
 OUTPUT_PATH = ROOT / "data" / "question-catalog.json"
 NS = {
     "a": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
@@ -72,9 +75,109 @@ def question_prompt(section_label: str, question_number: int) -> str:
     )
 
 
+def is_section_heading(line: str) -> bool:
+    return bool(re.match(r"^[1-7]\s+[A-Z].+", line))
+
+
+def clean_pdf_line(raw_line: str) -> tuple[str, str | None]:
+    line = raw_line.strip()
+
+    if not line or re.fullmatch(r"\d+", line):
+        return "", None
+
+    if line.startswith("/r"):
+        if "⊸t" in line:
+            return line.split("⊸t", 1)[1].strip(), "subtopic"
+        return "", None
+
+    if line.startswith("Stockholm School") or line.startswith("6123 - ") or line == "Exercise Handbook" or line == "Diogo Mendes":
+        return "", None
+
+    if is_section_heading(line):
+        return "", "section"
+
+    return line.replace("¤", "EUR ").strip(), "text"
+
+
+def compact_problem_lines(lines: list[str], subtopic: str | None) -> str:
+    compacted = [subtopic] if subtopic else []
+
+    for line in lines:
+        if not compacted:
+            compacted.append(line)
+            continue
+
+        if (
+            line.startswith("Problem ")
+            or line.startswith("(")
+            or line.startswith("•")
+            or compacted[-1].endswith(":")
+        ):
+            compacted.append(line)
+        else:
+            compacted[-1] = f"{compacted[-1]} {line}"
+
+    return "\n".join(compacted)
+
+
+def parse_pdf_problem_blocks() -> list[dict]:
+    reader = PdfReader(str(PDF_PATH), strict=False)
+    problem_blocks = []
+    current_subtopic = None
+    current_problem_number = None
+    current_problem_lines = []
+    current_problem_subtopic = None
+
+    def flush_problem() -> None:
+        if current_problem_number is None:
+            return
+
+        problem_blocks.append(
+            {
+                "number": current_problem_number,
+                "prompt": compact_problem_lines(current_problem_lines, current_problem_subtopic),
+            }
+        )
+
+    for page in reader.pages:
+        text = page.extract_text() or ""
+        text = re.sub(r"(\w)-\n(\w)", r"\1\2", text)
+
+        for raw_line in text.split("\n"):
+            line, kind = clean_pdf_line(raw_line)
+
+            if kind == "section":
+                current_subtopic = None
+                continue
+
+            if not line:
+                continue
+
+            if kind == "subtopic":
+                current_subtopic = line
+                continue
+
+            problem_match = re.match(r"^Problem\s+(\d+)\s*(.*)$", line)
+            if problem_match:
+                flush_problem()
+                current_problem_number = int(problem_match.group(1))
+                current_problem_subtopic = current_subtopic
+                body = problem_match.group(2).strip()
+                current_problem_lines = [f"Problem {current_problem_number}{f' {body}' if body else ''}"]
+                continue
+
+            if current_problem_number is not None:
+                current_problem_lines.append(line)
+
+    flush_problem()
+    return problem_blocks
+
+
 def main() -> None:
     sections = []
     questions = []
+    pdf_problem_blocks = parse_pdf_problem_blocks()
+    pdf_index = 0
 
     with zipfile.ZipFile(WORKBOOK_PATH) as archive:
         shared_strings = load_shared_strings(archive)
@@ -112,8 +215,19 @@ def main() -> None:
             current_lines = []
 
             def flush_question() -> None:
+                nonlocal pdf_index
                 if current_number is None:
                     return
+
+                if pdf_index >= len(pdf_problem_blocks):
+                    raise RuntimeError("Ran out of PDF problem blocks while building the catalog.")
+
+                pdf_problem = pdf_problem_blocks[pdf_index]
+                if pdf_problem["number"] != current_number:
+                    raise RuntimeError(
+                        f"PDF/workbook question mismatch in {section_id}: expected Problem {current_number}, "
+                        f"got Problem {pdf_problem['number']} from the PDF."
+                    )
 
                 solution_text = "\n".join(line for line in current_lines if line)
                 questions.append(
@@ -124,14 +238,15 @@ def main() -> None:
                         "sectionLabel": f"{label}: {theme}",
                         "sectionNumber": section_number,
                         "title": f"{name} Question {current_number}",
-                        "prompt": question_prompt(name, current_number),
-                        "promptStatus": "placeholder",
+                        "prompt": pdf_problem["prompt"],
+                        "promptStatus": "handbook",
                         "sourceRef": f"exercise_handbook_2023_24.pdf · {name} · Question {current_number}",
                         "solutionRef": f"exercise handbook solutions.xlsx · {name} · Question {current_number}",
                         "solutionText": solution_text,
                         "tags": tags,
                     }
                 )
+                pdf_index += 1
 
             for row in rows[1:]:
                 first_cell = row[0] if row else ""
@@ -150,12 +265,17 @@ def main() -> None:
 
             flush_question()
 
+    if pdf_index != len(pdf_problem_blocks):
+        raise RuntimeError(
+            f"Unused PDF problem blocks remain after build: consumed {pdf_index} of {len(pdf_problem_blocks)}."
+        )
+
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(
         json.dumps(
             {
                 "version": 1,
-                "generatedFrom": WORKBOOK_PATH.name,
+                "generatedFrom": [WORKBOOK_PATH.name, PDF_PATH.name],
                 "generatedAt": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
                 "sections": sorted(sections, key=lambda section: section["number"]),
                 "questions": questions,
