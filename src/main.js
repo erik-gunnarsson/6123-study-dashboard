@@ -22,6 +22,8 @@ const state = {
   activeProfileId: getActiveProfileId(),
   attempts: [],
   activeQuestion: null,
+  questionHistory: [],
+  historyIndex: -1,
   sectionFilter: "all",
   queueMode: getQueueMode(),
   selectedView: "study",
@@ -48,6 +50,8 @@ const elements = {
   queueModeLabel: document.querySelector("#queue-mode-label"),
   nextQuestion: document.querySelector("#next-question"),
   nextQuestionInline: document.querySelector("#next-question-inline"),
+  previousQuestion: document.querySelector("#previous-question"),
+  orderedNextQuestion: document.querySelector("#ordered-next-question"),
   exportData: document.querySelector("#export-data"),
   importData: document.querySelector("#import-data"),
   resetProfile: document.querySelector("#reset-profile"),
@@ -93,6 +97,31 @@ function setFeedbackStatus(message = "", tone = "") {
 
 function getActiveProfile() {
   return state.profiles.find((profile) => profile.id === state.activeProfileId) ?? null;
+}
+
+function getOrderedQuestions() {
+  if (!state.catalog) {
+    return [];
+  }
+
+  return state.catalog.questions.filter((question) => state.sectionFilter === "all" || question.section === state.sectionFilter);
+}
+
+function setActiveQuestion(question, { trackHistory = true } = {}) {
+  state.activeQuestion = question ?? null;
+
+  if (!question || !trackHistory) {
+    return;
+  }
+
+  const currentHistoryId = state.questionHistory[state.historyIndex] ?? null;
+  if (currentHistoryId === question.id) {
+    return;
+  }
+
+  state.questionHistory = state.questionHistory.slice(0, state.historyIndex + 1);
+  state.questionHistory.push(question.id);
+  state.historyIndex = state.questionHistory.length - 1;
 }
 
 function setView(view) {
@@ -213,7 +242,7 @@ function openQuestion(questionId) {
     return;
   }
 
-  state.activeQuestion = question;
+  setActiveQuestion(question);
   setView("study");
   renderQuestion();
 }
@@ -240,8 +269,33 @@ function openFirstQuestion() {
     return;
   }
 
-  state.activeQuestion = firstQuestion;
+  setActiveQuestion(firstQuestion);
   setView("study");
+}
+
+function goToPreviousViewedQuestion() {
+  if (state.historyIndex <= 0 || !state.catalog) {
+    return;
+  }
+
+  state.historyIndex -= 1;
+  state.activeQuestion = getQuestionById(state.catalog, state.questionHistory[state.historyIndex]);
+  setView("study");
+  renderQuestion();
+}
+
+function goToOrderedNextQuestion() {
+  const orderedQuestions = getOrderedQuestions();
+
+  if (orderedQuestions.length === 0) {
+    return;
+  }
+
+  const currentIndex = orderedQuestions.findIndex((question) => question.id === state.activeQuestion?.id);
+  const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % orderedQuestions.length : 0;
+  setActiveQuestion(orderedQuestions[nextIndex] ?? null);
+  setView("study");
+  renderQuestion();
 }
 
 function createListCard(title, body, rightLabel = "", rightLabelKey = "") {
@@ -287,6 +341,8 @@ function renderProfiles() {
         setActiveProfileId(profile.id);
         state.attempts = await getAttemptsForProfile(profile.id);
         state.activeQuestion = null;
+        state.questionHistory = [];
+        state.historyIndex = -1;
         render();
       });
       elements.profileList.appendChild(card);
@@ -364,6 +420,9 @@ function renderQuestion() {
   if (!showQuestion) {
     return;
   }
+
+  elements.previousQuestion.disabled = state.historyIndex <= 0;
+  elements.orderedNextQuestion.disabled = getOrderedQuestions().length === 0;
 
   elements.questionSection.textContent = question.sectionLabel;
   elements.questionSection.className = `pill ${getSectionBadgeClass(question.section)}`;
@@ -537,6 +596,8 @@ function render() {
   renderCatalog();
   elements.nextQuestion.disabled = !activeProfile;
   elements.nextQuestionInline.disabled = !activeProfile;
+  elements.previousQuestion.disabled = !activeProfile || state.historyIndex <= 0;
+  elements.orderedNextQuestion.disabled = !activeProfile || getOrderedQuestions().length === 0;
   elements.resetProfile.disabled = !activeProfile;
   elements.feedbackSubmit.disabled = false;
 }
@@ -547,13 +608,13 @@ async function loadNextQuestion() {
   }
 
   setView("study");
-  state.activeQuestion = pickNextQuestion({
+  setActiveQuestion(pickNextQuestion({
     catalog: state.catalog,
     attempts: state.attempts,
     sectionFilter: state.sectionFilter,
     queueMode: state.queueMode,
     currentQuestionId: state.activeQuestion?.id ?? null,
-  });
+  }));
 
   renderQuestion();
 }
@@ -665,6 +726,8 @@ elements.onboardingForm.addEventListener("submit", async (event) => {
 elements.sectionFilter.addEventListener("change", (event) => {
   state.sectionFilter = event.target.value;
   state.activeQuestion = null;
+  state.questionHistory = [];
+  state.historyIndex = -1;
   render();
 });
 
@@ -676,6 +739,8 @@ elements.queueMode.addEventListener("change", (event) => {
 
 elements.nextQuestion.addEventListener("click", loadNextQuestion);
 elements.nextQuestionInline.addEventListener("click", loadNextQuestion);
+elements.previousQuestion.addEventListener("click", goToPreviousViewedQuestion);
+elements.orderedNextQuestion.addEventListener("click", goToOrderedNextQuestion);
 
 elements.toggleSolution.addEventListener("click", () => {
   const hidden = elements.solutionPanel.classList.toggle("hidden");
@@ -711,6 +776,8 @@ elements.importData.addEventListener("change", async (event) => {
   state.profiles = await getProfiles();
   state.activeProfileId = getActiveProfileId();
   state.attempts = state.activeProfileId ? await getAttemptsForProfile(state.activeProfileId) : [];
+  state.questionHistory = [];
+  state.historyIndex = -1;
   render();
   event.target.value = "";
 });
@@ -731,6 +798,8 @@ elements.resetProfile.addEventListener("click", async () => {
   await deleteAttemptsForProfile(profile.id);
   state.attempts = [];
   state.activeQuestion = null;
+  state.questionHistory = [];
+  state.historyIndex = -1;
   render();
 });
 

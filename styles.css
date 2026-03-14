@@ -278,6 +278,12 @@ button:disabled {
   min-width: 0;
 }
 
+.sidebar-column {
+  display: grid;
+  gap: 16px;
+  align-self: start;
+}
+
 .panel,
 .subpanel,
 .metric-card,
@@ -302,6 +308,10 @@ button:disabled {
 .sidebar-panel {
   position: sticky;
   top: 16px;
+}
+
+.feedback-panel {
+  padding: 18px;
 }
 
 .stack {
@@ -684,6 +694,19 @@ textarea {
   padding: 18px;
 }
 
+.study-nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.nav-button {
+  min-height: 36px;
+  padding: 0.55rem 0.85rem;
+}
+
 .empty-state h3,
 .question-card h3 {
   margin: 0 0 8px;
@@ -746,6 +769,10 @@ textarea {
   margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid var(--line);
+}
+
+.side-note-field {
+  margin-top: 6px;
 }
 
 pre {
@@ -989,7 +1016,8 @@ pre {
   }
 
   .utility-drawer,
-  .sidebar-panel {
+  .sidebar-panel,
+  .sidebar-column {
     position: static;
     width: 100%;
   }

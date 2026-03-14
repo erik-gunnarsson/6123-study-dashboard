@@ -90,45 +90,47 @@
       </header>
 
       <main class="app-grid">
-        <aside class="panel stack sidebar-panel">
-          <section class="sidebar-status">
-            <div class="section-heading sidebar-heading">
-              <h2>Progress map</h2>
-            </div>
-            <div id="sidebar-question-matrix" class="question-matrix question-matrix-compact" aria-label="Compact question outcome matrix"></div>
-          </section>
+        <div class="sidebar-column">
+          <aside class="panel stack sidebar-panel">
+            <section class="sidebar-status">
+              <div class="section-heading sidebar-heading">
+                <h2>Progress map</h2>
+              </div>
+              <div id="sidebar-question-matrix" class="question-matrix question-matrix-compact" aria-label="Compact question outcome matrix"></div>
+            </section>
 
-          <section>
-            <div class="section-heading sidebar-heading">
-              <h2>Queue</h2>
-              <span class="pill" id="queue-mode-label">Mixed</span>
-            </div>
-            <label class="field">
-              <span>Queue mode</span>
-              <select id="queue-mode">
-                <option value="weighted">Mixed weighted</option>
-                <option value="mixed">Mixed</option>
-                <option value="ordered">In order</option>
-              </select>
-            </label>
-            <label class="field">
-              <span>Section filter</span>
-              <select id="section-filter"></select>
-            </label>
-            <button id="next-question" class="primary-button">Load next question</button>
-          </section>
+            <section>
+              <div class="section-heading sidebar-heading">
+                <h2>Queue</h2>
+                <span class="pill" id="queue-mode-label">Mixed</span>
+              </div>
+              <label class="field">
+                <span>Queue mode</span>
+                <select id="queue-mode">
+                  <option value="weighted">Mixed weighted</option>
+                  <option value="mixed">Mixed</option>
+                  <option value="ordered">In order</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Section filter</span>
+                <select id="section-filter"></select>
+              </label>
+              <button id="next-question" class="primary-button">Load next question</button>
+            </section>
 
-          <section>
-            <div class="section-heading sidebar-heading">
-              <h2>Active profile</h2>
-            </div>
-            <div id="active-profile-panel" class="active-profile-panel">
-              <strong id="active-profile-name">No profile selected</strong>
-              <p id="active-profile-copy" class="helper-copy">Open Settings to create or switch profiles.</p>
-            </div>
-          </section>
+            <section>
+              <div class="section-heading sidebar-heading">
+                <h2>Active profile</h2>
+              </div>
+              <div id="active-profile-panel" class="active-profile-panel">
+                <strong id="active-profile-name">No profile selected</strong>
+                <p id="active-profile-copy" class="helper-copy">Open Settings to create or switch profiles.</p>
+              </div>
+            </section>
+          </aside>
 
-          <section>
+          <aside class="panel feedback-panel">
             <div class="section-heading sidebar-heading">
               <h2>Send feedback</h2>
             </div>
@@ -147,8 +149,8 @@
               <button id="feedback-submit" type="submit">Send feedback</button>
               <p id="feedback-status" class="feedback-status hidden" aria-live="polite"></p>
             </form>
-          </section>
-        </aside>
+          </aside>
+        </div>
 
         <section class="content stack">
           <nav class="tab-row" aria-label="Study dashboard views">
@@ -167,6 +169,10 @@
               <p>The queue is weighted toward questions you fail or want to repeat, while still rotating unseen material.</p>
             </div>
             <article id="question-card" class="question-card hidden">
+              <div class="study-nav-row">
+                <button id="previous-question" type="button" class="nav-button subtle">← Back</button>
+                <button id="ordered-next-question" type="button" class="nav-button subtle">Next →</button>
+              </div>
               <div class="question-meta">
                 <span id="question-section" class="pill"></span>
                 <span id="question-status" class="pill subtle"></span>
@@ -189,15 +195,15 @@
               </section>
 
               <form id="attempt-form" class="attempt-form">
-                <label class="field">
-                  <span>Attempt notes</span>
-                  <textarea id="attempt-note" rows="4" maxlength="800" placeholder="Add a takeaway, mistake pattern, or shortcut."></textarea>
-                </label>
                 <div class="button-row wrap">
                   <button type="submit" data-outcome="correct" class="success-button">Mark correct</button>
                   <button type="submit" data-outcome="failed" class="danger-button">Mark failed</button>
                   <button type="submit" data-outcome="repeat" class="secondary-button">Repeat later</button>
                 </div>
+                <label class="field side-note-field">
+                  <span>Attempt notes</span>
+                  <textarea id="attempt-note" rows="4" maxlength="800" placeholder="Add a takeaway, mistake pattern, or shortcut."></textarea>
+                </label>
               </form>
             </article>
           </section>
