@@ -30,6 +30,6 @@ test("dashboard stats summarize attempts and unanswered questions", () => {
   assert.equal(stats.questionStatuses.find((question) => question.id === "q1").outcome, "correct");
   assert.equal(stats.questionStatuses.find((question) => question.id === "q2").outcome, "repeat");
   assert.equal(stats.questionStatuses.find((question) => question.id === "q3").outcome, "unseen");
-  assert.equal(stats.progression.xp, 36);
-  assert.equal(stats.progression.currentEmoji, "🐢");
+  assert.equal(stats.progression.xp, 16);
+  assert.equal(stats.progression.currentEmoji, "🐣");
 });

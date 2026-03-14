@@ -24,14 +24,14 @@ test("progression advances through xp levels before the final gate", () => {
 
   const progression = computeProgressionStats({ attempts, questionStatuses });
 
-  assert.equal(progression.xp, 52);
-  assert.equal(progression.currentEmoji, "🐿️");
-  assert.equal(progression.nextEmoji, "🐈");
+  assert.equal(progression.xp, 24);
+  assert.equal(progression.currentEmoji, "🐣");
+  assert.equal(progression.nextEmoji, "🐿️");
   assert.equal(progression.isFinalGateLocked, false);
 });
 
 test("wizard level requires all questions green", () => {
-  const attempts = Array.from({ length: 25 }, () => ({ outcome: "correct" }));
+  const attempts = Array.from({ length: 60 }, () => ({ outcome: "correct" }));
   const locked = computeProgressionStats({
     attempts,
     questionStatuses: [{ outcome: "correct" }, { outcome: "repeat" }, { outcome: "correct" }],

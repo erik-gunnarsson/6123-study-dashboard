@@ -91,7 +91,7 @@
 
       <main class="app-grid">
         <div class="sidebar-column">
-          <aside class="panel stack sidebar-panel">
+          <aside class="panel progression-card">
             <section id="progression-panel" class="progression-panel" aria-label="XP progression">
               <div class="progression-header">
                 <div class="progression-level">
@@ -106,7 +106,7 @@
             </section>
 
             <section class="sidebar-status">
-              <div class="section-heading sidebar-heading">
+              <div class="section-heading sidebar-heading compact-heading">
                 <h2>Progress map</h2>
               </div>
               <div id="sidebar-question-matrix" class="question-matrix question-matrix-compact" aria-label="Compact question outcome matrix"></div>
@@ -120,7 +120,9 @@
                 </div>
               </div>
             </section>
+          </aside>
 
+          <aside class="panel stack sidebar-panel">
             <section>
               <div class="section-heading sidebar-heading">
                 <h2>Queue</h2>
@@ -213,6 +215,7 @@
               </section>
 
               <form id="attempt-form" class="attempt-form">
+                <div class="question-action-divider" aria-hidden="true"></div>
                 <div class="button-row wrap">
                   <button type="submit" data-outcome="correct" class="success-button">Mark correct</button>
                   <button type="submit" data-outcome="failed" class="danger-button">Mark failed</button>

@@ -1,19 +1,16 @@
 const LEVELS = [
   { emoji: "🐣", label: "Level 1", xpRequired: 0 },
-  { emoji: "🐢", label: "Level 2", xpRequired: 18 },
-  { emoji: "🐿️", label: "Level 3", xpRequired: 42 },
-  { emoji: "🐈", label: "Level 4", xpRequired: 72 },
-  { emoji: "🦊", label: "Level 5", xpRequired: 110 },
-  { emoji: "🐺", label: "Level 6", xpRequired: 156 },
-  { emoji: "🦁", label: "Level 7", xpRequired: 212 },
-  { emoji: "🐉", label: "Level 8", xpRequired: 280 },
+  { emoji: "🐿️", label: "Level 2", xpRequired: 60 },
+  { emoji: "🦊", label: "Level 3", xpRequired: 140 },
+  { emoji: "🦁", label: "Level 4", xpRequired: 260 },
+  { emoji: "🐉", label: "Level 5", xpRequired: 420 },
   { emoji: "🧙‍♂️", label: "Mastery", xpRequired: null },
 ];
 
 const XP_BY_OUTCOME = {
-  failed: 8,
-  repeat: 12,
-  correct: 16,
+  failed: 3,
+  repeat: 5,
+  correct: 8,
 };
 
 export function getLevelConfig() {

@@ -310,6 +310,11 @@ button:disabled {
   top: 16px;
 }
 
+.progression-card {
+  display: grid;
+  gap: 10px;
+}
+
 .feedback-panel {
   padding: 18px;
 }
@@ -317,12 +322,12 @@ button:disabled {
 .progression-panel {
   position: relative;
   overflow: hidden;
-  padding-bottom: 4px;
+  padding-bottom: 0;
 }
 
 .progression-header {
   position: relative;
-  min-height: 82px;
+  min-height: 72px;
 }
 
 .progression-level {
@@ -386,6 +391,10 @@ button:disabled {
 .section-heading h4 {
   margin: 0;
   font-size: 0.98rem;
+}
+
+.compact-heading {
+  margin-bottom: 8px;
 }
 
 .sidebar-heading h2 {
@@ -859,8 +868,14 @@ textarea {
   border-top: 1px solid var(--line);
 }
 
+.question-action-divider {
+  height: 1px;
+  margin: 14px 0 6px;
+  background: var(--line);
+}
+
 .side-note-field {
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 .study-secondary-actions {
