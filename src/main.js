@@ -9,6 +9,8 @@ import {
   exportState,
   importState,
   deleteAttemptsForProfile,
+  getQueueMode,
+  setQueueMode,
 } from "./storage.js";
 import { pickNextQuestion } from "./queue.js";
 import { computeDashboardStats } from "./stats.js";
@@ -21,6 +23,7 @@ const state = {
   attempts: [],
   activeQuestion: null,
   sectionFilter: "all",
+  queueMode: getQueueMode(),
   selectedView: "study",
 };
 
@@ -37,6 +40,7 @@ const elements = {
   activeProfileName: document.querySelector("#active-profile-name"),
   activeProfileCopy: document.querySelector("#active-profile-copy"),
   sectionFilter: document.querySelector("#section-filter"),
+  queueMode: document.querySelector("#queue-mode"),
   queueModeLabel: document.querySelector("#queue-mode-label"),
   nextQuestion: document.querySelector("#next-question"),
   nextQuestionInline: document.querySelector("#next-question-inline"),
@@ -317,7 +321,14 @@ function renderSectionFilter() {
     elements.sectionFilter.appendChild(element);
   });
 
-  elements.queueModeLabel.textContent = state.sectionFilter === "all" ? "Mixed" : "Section drill";
+  const queueModeLabels = {
+    weighted: "Mixed weighted",
+    mixed: "Mixed",
+    ordered: "In order",
+  };
+
+  elements.queueMode.value = state.queueMode;
+  elements.queueModeLabel.textContent = queueModeLabels[state.queueMode] ?? "Mixed weighted";
 }
 
 function renderQuestion() {
@@ -518,6 +529,8 @@ async function loadNextQuestion() {
     catalog: state.catalog,
     attempts: state.attempts,
     sectionFilter: state.sectionFilter,
+    queueMode: state.queueMode,
+    currentQuestionId: state.activeQuestion?.id ?? null,
   });
 
   renderQuestion();
@@ -594,6 +607,12 @@ elements.sectionFilter.addEventListener("change", (event) => {
   state.sectionFilter = event.target.value;
   state.activeQuestion = null;
   render();
+});
+
+elements.queueMode.addEventListener("change", (event) => {
+  state.queueMode = event.target.value;
+  setQueueMode(state.queueMode);
+  renderSectionFilter();
 });
 
 elements.nextQuestion.addEventListener("click", loadNextQuestion);

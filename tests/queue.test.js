@@ -31,3 +31,38 @@ test("question selection respects section filters", () => {
 
   assert.equal(selected.id, "q3");
 });
+
+test("mixed mode selects uniformly from eligible questions", () => {
+  const selected = pickNextQuestion({
+    catalog,
+    attempts: [],
+    queueMode: "mixed",
+    random: () => 0.51,
+  });
+
+  assert.equal(selected.id, "q2");
+});
+
+test("ordered mode walks through eligible questions in catalog order", () => {
+  const first = pickNextQuestion({
+    catalog,
+    attempts: [],
+    queueMode: "ordered",
+  });
+  const second = pickNextQuestion({
+    catalog,
+    attempts: [],
+    queueMode: "ordered",
+    currentQuestionId: "q1",
+  });
+  const wrapped = pickNextQuestion({
+    catalog,
+    attempts: [],
+    queueMode: "ordered",
+    currentQuestionId: "q3",
+  });
+
+  assert.equal(first.id, "q1");
+  assert.equal(second.id, "q2");
+  assert.equal(wrapped.id, "q1");
+});

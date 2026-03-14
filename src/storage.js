@@ -3,6 +3,7 @@ const DB_VERSION = 1;
 const PROFILE_STORE = "profiles";
 const ATTEMPT_STORE = "attempts";
 const ACTIVE_PROFILE_KEY = "studyprep-active-profile";
+const QUEUE_MODE_KEY = "studyprep-queue-mode";
 
 function withRequest(request) {
   return new Promise((resolve, reject) => {
@@ -106,4 +107,12 @@ export function setActiveProfileId(profileId) {
 
 export function getActiveProfileId() {
   return localStorage.getItem(ACTIVE_PROFILE_KEY);
+}
+
+export function setQueueMode(queueMode) {
+  localStorage.setItem(QUEUE_MODE_KEY, queueMode);
+}
+
+export function getQueueMode() {
+  return localStorage.getItem(QUEUE_MODE_KEY) ?? "weighted";
 }

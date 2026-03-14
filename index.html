@@ -104,6 +104,14 @@
               <span class="pill" id="queue-mode-label">Mixed</span>
             </div>
             <label class="field">
+              <span>Queue mode</span>
+              <select id="queue-mode">
+                <option value="weighted">Mixed weighted</option>
+                <option value="mixed">Mixed</option>
+                <option value="ordered">In order</option>
+              </select>
+            </label>
+            <label class="field">
               <span>Section filter</span>
               <select id="section-filter"></select>
             </label>
@@ -235,6 +243,10 @@
           </section>
         </section>
       </main>
+      <footer class="app-footer" aria-label="App footer">
+        <p><span class="crossed-out">Built to study.</span> Built instead of studying.</p>
+        <p>Powered by ☕</p>
+      </footer>
     </div>
 
     <template id="metric-card-template">
