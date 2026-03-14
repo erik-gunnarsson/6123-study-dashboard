@@ -36,6 +36,10 @@ body.onboarding-active .page-shell {
   display: none;
 }
 
+.hidden {
+  display: none;
+}
+
 .matrix-tooltip {
   position: fixed;
   z-index: 200;
@@ -525,6 +529,34 @@ button:disabled {
 
 .sidebar-panel .primary-button {
   margin-top: 2px;
+}
+
+.feedback-form {
+  display: grid;
+  gap: 10px;
+}
+
+.feedback-form textarea {
+  min-height: 104px;
+}
+
+.feedback-status {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.feedback-status.is-success {
+  color: #166534;
+}
+
+.feedback-status.is-error {
+  color: #b42318;
+}
+
+.feedback-status.is-pending {
+  color: #0f766e;
 }
 
 .utility-content.stack {

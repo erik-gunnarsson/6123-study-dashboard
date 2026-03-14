@@ -39,6 +39,10 @@ const elements = {
   profileName: document.querySelector("#profile-name"),
   activeProfileName: document.querySelector("#active-profile-name"),
   activeProfileCopy: document.querySelector("#active-profile-copy"),
+  feedbackForm: document.querySelector("#feedback-form"),
+  feedbackMessage: document.querySelector("#feedback-message"),
+  feedbackSubmit: document.querySelector("#feedback-submit"),
+  feedbackStatus: document.querySelector("#feedback-status"),
   sectionFilter: document.querySelector("#section-filter"),
   queueMode: document.querySelector("#queue-mode"),
   queueModeLabel: document.querySelector("#queue-mode-label"),
@@ -81,6 +85,11 @@ const elements = {
 };
 
 let activeTooltipAnchor = null;
+
+function setFeedbackStatus(message = "", tone = "") {
+  elements.feedbackStatus.textContent = message;
+  elements.feedbackStatus.className = `feedback-status${message ? "" : " hidden"}${tone ? ` is-${tone}` : ""}`;
+}
 
 function getActiveProfile() {
   return state.profiles.find((profile) => profile.id === state.activeProfileId) ?? null;
@@ -295,6 +304,18 @@ function renderActiveProfile() {
 
   elements.activeProfileName.textContent = activeProfile.name;
   elements.activeProfileCopy.textContent = `${state.attempts.length} attempt${state.attempts.length === 1 ? "" : "s"} saved in this browser.`;
+}
+
+function getFeedbackPayload() {
+  const activeProfile = getActiveProfile();
+
+  return {
+    message: elements.feedbackMessage.value.trim(),
+    profileName: activeProfile?.name ?? "",
+    view: state.selectedView,
+    questionId: state.activeQuestion?.id ?? "",
+    questionTitle: state.activeQuestion?.title ?? "",
+  };
 }
 
 function renderOnboarding() {
@@ -517,6 +538,7 @@ function render() {
   elements.nextQuestion.disabled = !activeProfile;
   elements.nextQuestionInline.disabled = !activeProfile;
   elements.resetProfile.disabled = !activeProfile;
+  elements.feedbackSubmit.disabled = false;
 }
 
 async function loadNextQuestion() {
@@ -556,6 +578,43 @@ async function handleAttemptSubmission(event) {
   state.attempts = [...state.attempts, attempt];
   await loadNextQuestion();
   renderDashboard();
+}
+
+async function handleFeedbackSubmission(event) {
+  event.preventDefault();
+
+  const payload = getFeedbackPayload();
+
+  if (!payload.message) {
+    setFeedbackStatus("Write a quick note before sending.", "error");
+    return;
+  }
+
+  elements.feedbackSubmit.disabled = true;
+  setFeedbackStatus("Sending...", "pending");
+
+  try {
+    const response = await fetch("/api/feedback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const result = await response.json().catch(() => ({ ok: false, error: "Feedback could not be sent." }));
+
+    if (!response.ok || !result.ok) {
+      throw new Error(result.error || "Feedback could not be sent.");
+    }
+
+    elements.feedbackMessage.value = "";
+    setFeedbackStatus("Sent to Discord. Thank you.", "success");
+  } catch (error) {
+    setFeedbackStatus(error instanceof Error ? error.message : "Feedback could not be sent.", "error");
+  } finally {
+    elements.feedbackSubmit.disabled = false;
+  }
 }
 
 async function bootstrap() {
@@ -624,6 +683,7 @@ elements.toggleSolution.addEventListener("click", () => {
 });
 
 elements.attemptForm.addEventListener("submit", handleAttemptSubmission);
+elements.feedbackForm.addEventListener("submit", handleFeedbackSubmission);
 
 elements.tabs.forEach((tab) => {
   tab.addEventListener("click", () => setView(tab.dataset.view));

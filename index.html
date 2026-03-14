@@ -127,6 +127,27 @@
               <p id="active-profile-copy" class="helper-copy">Open Settings to create or switch profiles.</p>
             </div>
           </section>
+
+          <section>
+            <div class="section-heading sidebar-heading">
+              <h2>Send feedback</h2>
+            </div>
+            <form id="feedback-form" class="feedback-form">
+              <label class="field">
+                <span>Thoughts, bugs, or ideas</span>
+                <textarea
+                  id="feedback-message"
+                  name="feedbackMessage"
+                  rows="4"
+                  maxlength="1200"
+                  placeholder="Send a quick note straight into Discord."
+                  required
+                ></textarea>
+              </label>
+              <button id="feedback-submit" type="submit">Send feedback</button>
+              <p id="feedback-status" class="feedback-status hidden" aria-live="polite"></p>
+            </form>
+          </section>
         </aside>
 
         <section class="content stack">
