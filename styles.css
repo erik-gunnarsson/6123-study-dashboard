@@ -851,6 +851,8 @@ textarea {
   margin: 0;
   white-space: pre-wrap;
   line-height: 1.7;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
 }
 
 .prompt-note {
@@ -892,6 +894,8 @@ pre {
   white-space: pre-wrap;
   font-family: "Manrope", sans-serif;
   line-height: 1.6;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
 }
 
 .metric-grid {
