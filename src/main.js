@@ -27,6 +27,8 @@ const state = {
   sectionFilter: "all",
   queueMode: getQueueMode(),
   selectedView: "study",
+  previousLevelIndex: null,
+  levelUpBurst: false,
 };
 
 const elements = {
@@ -41,6 +43,14 @@ const elements = {
   profileName: document.querySelector("#profile-name"),
   activeProfileName: document.querySelector("#active-profile-name"),
   activeProfileCopy: document.querySelector("#active-profile-copy"),
+  progressionPanel: document.querySelector("#progression-panel"),
+  currentLevelEmoji: document.querySelector("#current-level-emoji"),
+  currentLevelLabel: document.querySelector("#current-level-label"),
+  currentLevelXp: document.querySelector("#current-level-xp"),
+  progressionTrackLabel: document.querySelector("#progression-track-label"),
+  nextLevelEmoji: document.querySelector("#next-level-emoji"),
+  xpProgressFill: document.querySelector("#xp-progress-fill"),
+  levelConfetti: document.querySelector("#level-confetti"),
   feedbackForm: document.querySelector("#feedback-form"),
   feedbackMessage: document.querySelector("#feedback-message"),
   feedbackSubmit: document.querySelector("#feedback-submit"),
@@ -89,10 +99,44 @@ const elements = {
 };
 
 let activeTooltipAnchor = null;
+let confettiTimeoutId = null;
 
 function setFeedbackStatus(message = "", tone = "") {
   elements.feedbackStatus.textContent = message;
   elements.feedbackStatus.className = `feedback-status${message ? "" : " hidden"}${tone ? ` is-${tone}` : ""}`;
+}
+
+function resetProfileUiState() {
+  state.activeQuestion = null;
+  state.questionHistory = [];
+  state.historyIndex = -1;
+  state.previousLevelIndex = null;
+  state.levelUpBurst = false;
+}
+
+function triggerLevelConfetti() {
+  if (confettiTimeoutId) {
+    window.clearTimeout(confettiTimeoutId);
+  }
+
+  elements.levelConfetti.replaceChildren();
+
+  for (let index = 0; index < 14; index += 1) {
+    const particle = document.createElement("span");
+    particle.className = "confetti-piece";
+    particle.style.setProperty("--x", `${6 + Math.random() * 88}%`);
+    particle.style.setProperty("--delay", `${Math.random() * 120}ms`);
+    particle.style.setProperty("--duration", `${700 + Math.random() * 350}ms`);
+    particle.style.setProperty("--rotation", `${-40 + Math.random() * 80}deg`);
+    particle.style.setProperty("--color", ["#0f766e", "#14b8a6", "#f59e0b", "#60a5fa"][index % 4]);
+    elements.levelConfetti.appendChild(particle);
+  }
+
+  elements.progressionPanel.classList.add("is-level-up");
+  confettiTimeoutId = window.setTimeout(() => {
+    elements.progressionPanel.classList.remove("is-level-up");
+    elements.levelConfetti.replaceChildren();
+  }, 1300);
 }
 
 function getActiveProfile() {
@@ -259,6 +303,7 @@ async function createAndActivateProfile(name) {
   state.profiles = [...state.profiles, profile];
   state.activeProfileId = profile.id;
   state.attempts = [];
+  resetProfileUiState();
   setActiveProfileId(profile.id);
 }
 
@@ -340,9 +385,7 @@ function renderProfiles() {
         state.activeProfileId = profile.id;
         setActiveProfileId(profile.id);
         state.attempts = await getAttemptsForProfile(profile.id);
-        state.activeQuestion = null;
-        state.questionHistory = [];
-        state.historyIndex = -1;
+        resetProfileUiState();
         render();
       });
       elements.profileList.appendChild(card);
@@ -458,6 +501,21 @@ function renderDashboard() {
   }
 
   const stats = computeDashboardStats(state.catalog, state.attempts);
+  const progression = stats.progression;
+  elements.currentLevelEmoji.textContent = progression.currentEmoji;
+  elements.currentLevelLabel.textContent = progression.currentLabel;
+  elements.currentLevelXp.textContent = `${progression.xp} XP earned`;
+  elements.progressionTrackLabel.textContent = progression.progressLabel;
+  elements.nextLevelEmoji.textContent = progression.isWizardUnlocked ? progression.currentEmoji : progression.nextEmoji;
+  elements.xpProgressFill.style.width = `${progression.progressPercent}%`;
+
+  if (state.previousLevelIndex !== null && progression.currentLevelIndex > state.previousLevelIndex && state.levelUpBurst) {
+    triggerLevelConfetti();
+    state.levelUpBurst = false;
+  }
+
+  state.previousLevelIndex = progression.currentLevelIndex;
+
   const metricData = [
     { label: "Questions", value: stats.totalQuestions, footnote: "Seeded from the handbook solutions workbook" },
     { label: "Attempts", value: stats.attemptsCount, footnote: "Saved locally in this browser" },
@@ -628,6 +686,7 @@ async function handleAttemptSubmission(event) {
   }
 
   const outcome = submitter.dataset.outcome;
+  const previousStats = state.catalog ? computeDashboardStats(state.catalog, state.attempts) : null;
   const attempt = createAttempt({
     questionId: state.activeQuestion.id,
     profileId: state.activeProfileId,
@@ -637,6 +696,12 @@ async function handleAttemptSubmission(event) {
 
   await saveAttempt(attempt);
   state.attempts = [...state.attempts, attempt];
+  const nextStats = state.catalog ? computeDashboardStats(state.catalog, state.attempts) : null;
+  state.levelUpBurst = Boolean(
+    previousStats &&
+    nextStats &&
+    nextStats.progression.currentLevelIndex > previousStats.progression.currentLevelIndex,
+  );
   await loadNextQuestion();
   renderDashboard();
 }
@@ -725,9 +790,7 @@ elements.onboardingForm.addEventListener("submit", async (event) => {
 
 elements.sectionFilter.addEventListener("change", (event) => {
   state.sectionFilter = event.target.value;
-  state.activeQuestion = null;
-  state.questionHistory = [];
-  state.historyIndex = -1;
+  resetProfileUiState();
   render();
 });
 
@@ -776,8 +839,7 @@ elements.importData.addEventListener("change", async (event) => {
   state.profiles = await getProfiles();
   state.activeProfileId = getActiveProfileId();
   state.attempts = state.activeProfileId ? await getAttemptsForProfile(state.activeProfileId) : [];
-  state.questionHistory = [];
-  state.historyIndex = -1;
+  resetProfileUiState();
   render();
   event.target.value = "";
 });
@@ -797,9 +859,7 @@ elements.resetProfile.addEventListener("click", async () => {
 
   await deleteAttemptsForProfile(profile.id);
   state.attempts = [];
-  state.activeQuestion = null;
-  state.questionHistory = [];
-  state.historyIndex = -1;
+  resetProfileUiState();
   render();
 });
 
