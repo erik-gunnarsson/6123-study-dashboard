@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build:catalog": "python3 scripts/build_catalog.py",
+    "start": "node server.js",
     "serve": "python3 -m http.server 4173",
     "test": "node --test"
   },
