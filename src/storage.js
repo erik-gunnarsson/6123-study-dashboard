@@ -114,5 +114,5 @@ export function setQueueMode(queueMode) {
 }
 
 export function getQueueMode() {
-  return localStorage.getItem(QUEUE_MODE_KEY) ?? "weighted";
+  return localStorage.getItem(QUEUE_MODE_KEY) ?? "ordered";
 }

@@ -136,6 +136,20 @@ button:disabled {
   margin: 0;
 }
 
+.app-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-separator {
+  display: inline-block;
+  margin: 0 0.3rem;
+}
+
 .crossed-out {
   text-decoration: line-through;
   text-decoration-thickness: 1.5px;
@@ -410,11 +424,11 @@ button:disabled {
 
 .profile-card header,
 .catalog-item header,
-.list-card header,
 .section-row header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 6px;
   min-width: 0;
@@ -422,19 +436,45 @@ button:disabled {
 
 .profile-card header > *,
 .catalog-item header > *,
-.list-card header > *,
 .section-row header > * {
   min-width: 0;
 }
 
-.list-card .pill,
+.list-card {
+  display: grid;
+  gap: 10px;
+}
+
+.list-card-head {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.list-card strong,
+.catalog-item strong,
+.section-row strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
+
+.list-card-label,
 .catalog-item .pill,
 .section-row .pill {
-  max-width: min(62%, 340px);
+  width: fit-content;
+  max-width: min(100%, 100%);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  flex: 0 1 auto;
+}
+
+.list-card p,
+.catalog-item p,
+.section-row p {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .inline-form,

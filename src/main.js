@@ -239,10 +239,10 @@ function createListCard(title, body, rightLabel = "", rightLabelKey = "") {
   const item = document.createElement("article");
   item.className = "list-card";
   item.innerHTML = `
-    <header>
+    <div class="list-card-head">
       <strong>${title}</strong>
-      ${rightLabel ? `<span class="pill subtle ${getSectionBadgeClass(rightLabelKey || rightLabel)}">${rightLabel}</span>` : ""}
-    </header>
+      ${rightLabel ? `<span class="pill subtle list-card-label ${getSectionBadgeClass(rightLabelKey || rightLabel)}">${rightLabel}</span>` : ""}
+    </div>
     <p>${body}</p>
   `;
   return item;
