@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6123 Study Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="matrix-tooltip" class="matrix-tooltip hidden" role="tooltip" aria-hidden="true"></div>
+
+    <div id="onboarding-overlay" class="onboarding-overlay hidden" aria-hidden="true">
+      <div class="onboarding-backdrop"></div>
+      <section class="onboarding-modal" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
+        <p class="eyebrow">Welcome</p>
+        <h2 id="onboarding-title">What should we call you?</h2>
+        <p class="hero-copy">Create a profile to save your results and personalize the study queue.</p>
+        <form id="onboarding-form" class="onboarding-form">
+          <input
+            id="onboarding-name"
+            name="profileName"
+            type="text"
+            maxlength="40"
+            placeholder="Your name"
+            autocomplete="name"
+            required
+          />
+          <button type="submit" class="primary-button">Start studying</button>
+        </form>
+      </section>
+    </div>
+
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="topbar-title">
+          <p class="eyebrow">6123 Study Dashboard</p>
+          <h1>Study handbook questions with minimal friction.</h1>
+          <p id="catalog-summary" class="hero-copy">Loading question catalog...</p>
+        </div>
+        <details class="utility-drawer">
+          <summary>
+            <span>Settings</span>
+            <span class="drawer-caret" aria-hidden="true"></span>
+          </summary>
+          <div class="utility-content stack">
+            <section class="settings-group">
+              <div class="section-heading settings-heading">
+                <h2>Profiles</h2>
+                <span class="pill" id="profile-count">0 users</span>
+              </div>
+              <div id="profile-list" class="profile-list"></div>
+              <form id="profile-form" class="inline-form compact-form">
+                <input id="profile-name" name="profileName" type="text" maxlength="40" placeholder="Add a learner name" required />
+                <button type="submit">Add</button>
+              </form>
+            </section>
+
+            <section class="settings-group">
+              <div class="section-heading settings-heading">
+                <h2>Progress</h2>
+              </div>
+              <div class="button-row wrap">
+                <button id="export-data" type="button">Export</button>
+                <label class="button-like">
+                  Import
+                  <input id="import-data" type="file" accept="application/json" hidden />
+                </label>
+              </div>
+              <button id="reset-profile" class="danger-button" type="button">Reset active profile</button>
+            </section>
+
+            <section class="settings-group">
+              <div class="section-heading settings-heading">
+                <h2>Source Files</h2>
+              </div>
+              <div class="button-row wrap">
+                <a class="button-like subtle" href="./exercise_handbook_2023_24.pdf" target="_blank" rel="noreferrer">Handbook PDF</a>
+                <a class="button-like subtle" href="./exercise%20handbook%20solutions.xlsx" target="_blank" rel="noreferrer">Solutions XLSX</a>
+              </div>
+            </section>
+          </div>
+        </details>
+      </header>
+
+      <main class="app-grid">
+        <aside class="panel stack sidebar-panel">
+          <section class="sidebar-status">
+            <div class="section-heading sidebar-heading">
+              <h2>Progress map</h2>
+            </div>
+            <div id="sidebar-question-matrix" class="question-matrix question-matrix-compact" aria-label="Compact question outcome matrix"></div>
+          </section>
+
+          <section>
+            <div class="section-heading sidebar-heading">
+              <h2>Queue</h2>
+              <span class="pill" id="queue-mode-label">Mixed</span>
+            </div>
+            <label class="field">
+              <span>Section filter</span>
+              <select id="section-filter"></select>
+            </label>
+            <button id="next-question" class="primary-button">Load next question</button>
+          </section>
+
+          <section>
+            <div class="section-heading sidebar-heading">
+              <h2>Active profile</h2>
+            </div>
+            <div id="active-profile-panel" class="active-profile-panel">
+              <strong id="active-profile-name">No profile selected</strong>
+              <p id="active-profile-copy" class="helper-copy">Open Settings to create or switch profiles.</p>
+            </div>
+          </section>
+        </aside>
+
+        <section class="content stack">
+          <nav class="tab-row" aria-label="Study dashboard views">
+            <button class="tab is-active" data-view="study" type="button">Study</button>
+            <button class="tab" data-view="dashboard" type="button">Dashboard</button>
+            <button class="tab" data-view="catalog" type="button">Catalog</button>
+          </nav>
+
+          <section id="study-view" class="panel stack view is-active">
+            <div class="section-heading">
+              <h2>Current Question</h2>
+              <span class="pill" id="question-badge">Waiting</span>
+            </div>
+            <div id="empty-state" class="empty-state">
+              <h3>Pick a profile and load a question.</h3>
+              <p>The queue is weighted toward questions you fail or want to repeat, while still rotating unseen material.</p>
+            </div>
+            <article id="question-card" class="question-card hidden">
+              <div class="question-meta">
+                <span id="question-section" class="pill"></span>
+                <span id="question-status" class="pill subtle"></span>
+                <span id="question-source" class="meta-text"></span>
+              </div>
+              <h3 id="question-title"></h3>
+              <p id="question-prompt" class="question-prompt"></p>
+              <p id="question-prompt-note" class="prompt-note"></p>
+              <div class="button-row">
+                <button id="toggle-solution" type="button">Reveal solution</button>
+                <button id="next-question-inline" type="button">Skip to another question</button>
+              </div>
+
+              <section id="solution-panel" class="solution-panel hidden">
+                <div class="section-heading">
+                  <h4>Solution reference</h4>
+                  <span id="solution-ref" class="pill subtle"></span>
+                </div>
+                <pre id="solution-text"></pre>
+              </section>
+
+              <form id="attempt-form" class="attempt-form">
+                <label class="field">
+                  <span>Attempt notes</span>
+                  <textarea id="attempt-note" rows="4" maxlength="800" placeholder="Add a takeaway, mistake pattern, or shortcut."></textarea>
+                </label>
+                <div class="button-row wrap">
+                  <button type="submit" data-outcome="correct" class="success-button">Mark correct</button>
+                  <button type="submit" data-outcome="failed" class="danger-button">Mark failed</button>
+                  <button type="submit" data-outcome="repeat" class="secondary-button">Repeat later</button>
+                </div>
+              </form>
+            </article>
+          </section>
+
+          <section id="dashboard-view" class="view panel hidden">
+            <div class="section-heading">
+              <h2>Results Dashboard</h2>
+            </div>
+            <section class="dashboard-overview">
+              <div class="section-heading">
+                <h3>Question Status</h3>
+              </div>
+              <div class="matrix-header">
+                <p class="helper-copy">Each square is one question. The color reflects the latest result you logged for it.</p>
+                <div class="matrix-legend">
+                  <span><i class="matrix-dot neutral"></i> Unseen</span>
+                  <span><i class="matrix-dot correct"></i> Correct</span>
+                  <span><i class="matrix-dot failed"></i> Failed</span>
+                  <span><i class="matrix-dot repeat"></i> Repeat</span>
+                </div>
+              </div>
+              <div id="question-matrix" class="question-matrix dashboard-question-matrix" aria-label="Question outcome matrix"></div>
+            </section>
+            <div id="dashboard-cards" class="metric-grid"></div>
+            <div class="split-grid">
+              <section class="subpanel">
+                <div class="section-heading">
+                  <h3>Section Performance</h3>
+                </div>
+                <div id="section-stats"></div>
+              </section>
+              <section class="subpanel">
+                <div class="section-heading">
+                  <h3>Recent Attempts</h3>
+                </div>
+                <div id="recent-attempts"></div>
+              </section>
+            </div>
+            <div class="split-grid">
+              <section class="subpanel">
+                <div class="section-heading">
+                  <h3>Most Missed</h3>
+                </div>
+                <div id="most-missed"></div>
+              </section>
+              <section class="subpanel">
+                <div class="section-heading">
+                  <h3>Needs First Pass</h3>
+                </div>
+                <div id="unanswered-list"></div>
+              </section>
+            </div>
+          </section>
+
+          <section id="catalog-view" class="view panel hidden">
+            <div class="section-heading">
+              <h2>Question Catalog</h2>
+              <span class="pill" id="catalog-count"></span>
+            </div>
+            <p class="catalog-copy">
+              The app uses a generated catalog from the solutions workbook. Placeholder prompts can be refined later without changing the progress data model.
+            </p>
+            <div id="catalog-list" class="catalog-list"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <template id="metric-card-template">
+      <article class="metric-card">
+        <p class="metric-label"></p>
+        <strong class="metric-value"></strong>
+        <span class="metric-footnote"></span>
+      </article>
+    </template>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1225 @@
+{
+  "version": 1,
+  "generatedFrom": "exercise handbook solutions.xlsx",
+  "generatedAt": "2026-03-14T17:02:46.111708Z",
+  "sections": [
+    {
+      "id": "part-1",
+      "label": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "number": 1,
+      "theme": "Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-2",
+      "label": "Part 2: Bond and Stock Valuation",
+      "number": 2,
+      "theme": "Bond and Stock Valuation",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-3",
+      "label": "Part 3: Risk and Return; Diversification; CAPM",
+      "number": 3,
+      "theme": "Risk and Return; Diversification; CAPM",
+      "tags": [
+        "Risk and Return",
+        "Diversification",
+        "CAPM"
+      ]
+    },
+    {
+      "id": "part-4",
+      "label": "Part 4: Capital Structure",
+      "number": 4,
+      "theme": "Capital Structure",
+      "tags": [
+        "Capital Structure"
+      ]
+    },
+    {
+      "id": "part-5",
+      "label": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "number": 5,
+      "theme": "International Corporate Finance; International Capital Budgeting; Risk Management",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-6",
+      "label": "Part 6: Equity Capital",
+      "number": 6,
+      "theme": "Equity Capital",
+      "tags": [
+        "Equity Capital"
+      ]
+    },
+    {
+      "id": "part-7",
+      "label": "Part 7: Mergers and Acquisitions",
+      "number": 7,
+      "theme": "Mergers and Acquisitions",
+      "tags": [
+        "Mergers and Acquisitions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "part-1-q1",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 1",
+      "prompt": "Solve Question 1 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 1",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 1",
+      "solutionText": "Formula | Result\na | =1000*(1+0.07)^5 | 1402.5517307000002\nb | =1000*(1+0.1)^5 | 1610.5100000000004\nc | =1000*(1+0.07)^10 | 1967.1513572895656\nd | The interest in (c) is more than twice the one in (a) because the interest is also being compounded during five more years in (c), i.e., for the second period of five years the initial value we are considering is €1,402.55 instead of €1,000.",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q2",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 2",
+      "prompt": "Solve Question 2 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 2",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 2",
+      "solutionText": "Formula | Result\na | =1000/(1+0.1)^2 | 826.44628099173542\nb | =2000/(1+0.1)^1 | 1818.181818181818\nc | =10000/(1+0.1)^8 | 4665.0738020973313",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q3",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 3",
+      "prompt": "Solve Question 3 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 3",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 3",
+      "solutionText": "Formula | Result\na | NPV = -60 000 + 70 000/(1+0.1)^1 | 3636.3636363636324\nAs NPV >0, it is profitable to sign the contract.\nb | NPV > 0 <=> -60 000 + 70 000/(1+r)^1 > 0 <=> r < 16.67 %\nGraphical inspection:\nr | NPV\n0 | 10000\n0.01 | 9306.9306930693128\n0.02 | 8627.4509803921537\n0.03 | 7961.165048543684\n0.04 | 7307.6923076923122\n0.05 | 6666.666666666657\n0.06 | 6037.7358490565966\n7.0000000000000007E-2 | 5420.5607476635487\n0.08 | 4814.8148148148102\n0.09 | 4220.1834862385294\n0.1 | 3636.3636363636324\n0.11 | 3063.0630630630549\n0.12 | 2499.9999999999927\n0.13 | 1946.9026548672628\n0.14000000000000001 | 1403.5087719298172\n0.15 | 869.56521739131131\n0.16 | 344.82758620689856\n0.17 | -170.94017094016453\n0.18 | -677.96610169491032\n0.19 | -1176.4705882352937\n0.2 | -1666.6666666666642\n0.21 | -2148.7603305785087\n0.22 | -2622.950819672129\n0.23 | -3089.4308943089418\n0.24 | -3548.3870967741896\n0.25 | -4000",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q4",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 4",
+      "prompt": "Solve Question 4 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 4",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 4",
+      "solutionText": "FV = 100 000 * (1+0.12)^6 + 100 000 * (1+0.12)^5 + 100 000 * (1+0.12)^4 + 100 000 * (1+0.12)^3 = | 671461.17283840023",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q5",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 5",
+      "prompt": "Solve Question 5 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 5",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 5",
+      "solutionText": "a | Method 1: discount each individual cash flow\nPeriod | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10\nCash Flow | 300 | 300 | 300 | 300 | 300 | 300 | 300 | 300 | 300 | 300\nDiscount Factor | 0.90909090909090906 | 0.82644628099173545 | 0.75131480090157754 | 0.68301345536507052 | 0.62092132305915493 | 0.56447393005377722 | 0.51315811823070645 | 0.46650738020973315 | 0.42409761837248466 | 0.38554328942953148\nDiscounted Cash Flow | 272.72727272727269 | 247.93388429752065 | 225.39444027047327 | 204.90403660952114 | 186.27639691774647 | 169.34217901613317 | 153.94743546921194 | 139.95221406291995 | 127.2292855117454 | 115.66298682885945\nPV | 1843.3701317114044\nMethod 2: apply the annuity formula\nPV (Annuity) = 300 / 0.1 * [1-(1/(1+0.1)^10)] = | 1843.3701317114057\nb | Method 1: discount each individual cash flow\nPeriod | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15\nCash Flow | 300 | 300 | 300 | 300 | 300 | 300 | 300 | 300 | 300 | 300\nDiscount Factor | 0.56447393005377722 | 0.51315811823070645 | 0.46650738020973315 | 0.42409761837248466 | 0.38554328942953148 | 0.3504938994813922 | 0.31863081771035656 | 0.28966437973668779 | 0.26333125430607973 | 0.23939204936916339\nDiscounted Cash Flow | 169.34217901613317 | 153.94743546921194 | 139.95221406291995 | 127.2292855117454 | 115.66298682885945 | 105.14816984441767 | 95.589245313106971 | 86.899313921006339 | 78.999376291823921 | 71.817614810749021\nPV | 1144.5878210699739\nMethod 2: apply the annuity formula\nPV (Annuity) = [300 / 0.1 * [1-(1/(1+0.1)^10)]] / [(1+0.1)^5] = | 1144.5878210699748",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q6",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 6",
+      "prompt": "Solve Question 6 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 6",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 6",
+      "solutionText": "a | To compare the three accounts, we need to calculate their EAR.\nA | B | C\nAPR | 4.4999999999999998E-2 | 4.4999999999999998E-2 | 4.4999999999999998E-2\nk | 2 | 4 | 12\nEAR | 4.5506249999999859E-2 | 4.5765086330566307E-2 | 4.5939825040589577E-2\nWe would prefer account C as this one yields the highest effective annual rate.\nb | Years | 3.5 | 3.5 | 3.5\nFV (using APR) | 116.85390139999127 | 116.95518619558642 | 117.02359834297773\nFV (using EAR) | 116.85390139999126 | 116.95518619558642 | 117.02359834297773\nAccording to our prediction in a), we see that we have indeed the highest return (17.02) after 3.5 years by investing in account C.",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q7",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 7",
+      "prompt": "Solve Question 7 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 7",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 7",
+      "solutionText": "The EAR is computed as follows:\nEAR= | =(1+0.09/12)^12-1 | 9.3806897670984268E-2\nNext we compute the APR with quarterly compounding\nAPR= | =((1+EAR)^(1/4)-1)*4 | 9.067668750000113E-2\nNow we can compute the present value of the annuity with 20 (4 quarters over 5 years) constant payments of $250.\nPV(Annuity)= | =250/(0.090677/4)*(1-1/(1+(0.090677/4))^20)= | 3984.4894136348612",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q8",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 8",
+      "prompt": "Solve Question 8 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 8",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 8",
+      "solutionText": "a | Method 1: compute the effective interest rate\nAlthough the stated annual interest rate is 5%, the effective annual interest rate should be higher due to the semi-annual compounding.\nTo calculate the effective annual interest rate, we need to calculate the proportional interest rate per semester first.\nr_proportional=5%/2 periods = 2.5%\nEffective interest rate = (1+0.025)^2 -1 = | 5.062499999999992E-2\n(Notice that the effective interest rate is higher than 5%. )\nFV = 10 000 * (1+5.06%)^10 = | 16386.164402903956\nMethod 2: use the proportional interest rate\nFV = 10 000 * (1+2.5%)^20 = | 16386.164402903956\nb | FV = 10 000 * (1+5.06%)^t = 20 000 <=> (1+5.06%)^t = 2 <=> ln[(1+5.06%)^t] = ln[2] <=> t = ln[2] / ln[1+5.06%] <=> t = | 14.035517262969337\nWith semester compounding, it will take 14.5 years to double the amount invested.\nc | Please see a)\nd | We already know that a 5% stated annual rate with semi-annual compounding yields a 5.06% effective annual rate.\nThe equivalent stated annual (r*) with daily compunding would be such that:\n(1 + r*/365)^365 = 1+ 5.06% <=> r* = ( 1.0506^(1/365) -1 ) * 365 <=> r* = | 4.9364767428906609E-2",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q9",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 9",
+      "prompt": "Solve Question 9 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 9",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 9",
+      "solutionText": "Period | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15\nCost of Development | -225000 | -225000 | -225000 | -225000 | -225000 | -225000 | -225000\nRevenue | 430000 | 430000 | 430000 | 430000 | 430000 | 430000 | 430000 | 430000\nCash Flows | 0 | -225000 | -225000 | -225000 | -225000 | -225000 | -225000 | -225000 | 430000 | 430000 | 430000 | 430000 | 430000 | 430000 | 430000 | 430000\na | Method 1: Discount cash flows individually\nr | 0.09\nDiscount Factor | 1 | 0.9174311926605504 | 0.84167999326655996 | 0.77218348006106419 | 0.7084252110651964 | 0.64993138629834524 | 0.5962673268792158 | 0.54703424484331731 | 0.50186627967276809 | 0.46042777951630098 | 0.42241080689568894 | 0.38753285036301738 | 0.35553472510368567 | 0.32617864688411524 | 0.29924646503129837 | 0.27453804131311776\nDiscounted Cash Flows | 0 | -206422.01834862385 | -189377.99848497598 | -173741.28301373945 | -159395.6724896692 | -146234.56191712769 | -134160.14854782354 | -123082.70508974639 | 215802.50025929027 | 197983.94519200941 | 181636.64696514624 | 166639.12565609749 | 152879.93179458485 | 140256.81816016955 | 128675.9799634583 | 118051.35776464063\nNPV | 169511.9178636907\nMethod 2: Use the perpetuity formula\nWe can estimate this NPV with two annuities. In order to find the correct value, we must consider two tricks: (1) The value of the second annuity must be discounted back to 0 since it starts in year 8; (2) the first annuity was an investment, so its value will get a negative sign.\nPV (development costs) = -225000/0.09 * (1-1/(1+0.09)^7) = | -1132414.3878917068\nPV (revenues) = [430000/0.09 * (1-1/(1+0.09)^8) ] /(1+0.09)^7 = | 1301926.3057553978\nNPV | 169511.91786369099\nSince the NPV>0, we should take the project.\nb | We want to find the Internal Rate of Return, i.e., the discount rate from which the NPV becomes negative.\nWe can try trial and error, graphical inspection or use Excel Goal Seek Function. Here we will use the latter.\nNPV (we want this cell to be zero) | 4.0978193283081055E-8\nIRR (we want to adjust this cell to get zero NPV) | 0.11079142801102418\nThe IRR of this project is 11.08%.\nThere is yet another alternative method: IRR function in excel.\nc | As 12% is higher than the IRR, the NPV should be negative.\nTo verify this answer, we can compute the NPV when r=12%:\nNPV | -60588.802482837229\nDiscount Rate | 0.12",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q10",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 10",
+      "prompt": "Solve Question 10 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 10",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 10",
+      "solutionText": "Period | 0 | 1 | 2 | 3 | 4 | 5\nInvestment | -5\nRevenue | 2.5 | 1 | 1 | 1 | 1\nCash Flows | -5 | 2.5 | 1 | 1 | 1 | 1\na | To compute the payback period, we should compute the commulative cash flows:\nCummulative cash flows:\n-5 | -2.5 | -1.5 | -0.5 | 0.5 | 1.5\nInvestors 'break-even' on the investment during the fourth year. Therefore, the studio will not accept the investment.\nb | r | 0.1\nDiscount Factor | 1 | 0.90909090909090906 | 0.82644628099173545 | 0.75131480090157754 | 0.68301345536507052 | 0.62092132305915493\nDiscounted Cash Flow | -5 | 2.2727272727272725 | 0.82644628099173545 | 0.75131480090157754 | 0.68301345536507052 | 0.62092132305915493\nNPV | 0.15442313304481092\nAlthough the movie has a positive NPV, as the studio takes on only projects that are payed back within 2 years they will not accept your movie. In this case the studio foregos a positive NPV opportunity.",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q11",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 11",
+      "prompt": "Solve Question 11 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 11",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 11",
+      "solutionText": "Year | 0 | 1 | 2 | 3\nSales | 100000 | 100000 | 100000\n- Cost of Goods Sold (50% of Sales) | -50000 | -50000 | -50000\n-Depreciation | -30000 | -30000 | -30000\n=EBIT | 20000 | 20000 | 20000\n-Taxes (35 %) | 7000 | 7000 | 7000\n=Unlevered net income | 13000 | 13000 | 13000\nCash flows\n+Depreciation | 30000 | 30000 | 30000\n-Changes to working capital* | 5000 | 5000 | -10000\n-Capital expenditures | -90000\n=Free cash flow | -90000 | 38000 | 38000 | 53000\nDiscount Rate | 0.12\nDiscount Factor | 1 | 0.89285714285714279 | 0.79719387755102034 | 0.71178024781341087\nDiscounted FCF | -90000 | 33928.571428571428 | 30293.367346938772 | 37724.353134110774\nNPV | 11946.291909620973\n*Working capital explanation | 5% of sales | 10% of sales | when the project is over, all remaining working capital is recovered\nWorking Capital | 0 | 5000 | 10000 | 0\nChanges in Working Capital | 0 | 5000 | 5000 | -10000",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q12",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 12",
+      "prompt": "Solve Question 12 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 12",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 12",
+      "solutionText": "b | Income statement | Project year\nItems | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | Tax | 0.35\nSales revenue | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26 | 26\n-Cost of goods sold | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6 | 15.6\n=Gross profit | 10.4 | 10.4 | 10.4 | 10.4 | 10.4 | 10.4 | 10.4 | 10.4 | 10.4 | 10.4\n-General, sales, and admin expenses | 2.88 | 2.88 | 2.88 | 2.88 | 2.88 | 2.88 | 2.88 | 2.88 | 2.88 | 2.88\n-Depreciation | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8\n=EBIT | 4.7200000000000006 | 4.7200000000000006 | 4.7200000000000006 | 4.7200000000000006 | 4.7200000000000006 | 4.7200000000000006 | 4.7200000000000006 | 4.7200000000000006 | 4.7200000000000006 | 4.7200000000000006\n-Income tax | 1.6520000000000001 | 1.6520000000000001 | 1.6520000000000001 | 1.6520000000000001 | 1.6520000000000001 | 1.6520000000000001 | 1.6520000000000001 | 1.6520000000000001 | 1.6520000000000001 | 1.6520000000000001\n=Net income | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005\nCash flow statement\nProject year\nItems | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10\n=Net income | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005 | 3.0680000000000005\nOperating activity\n+Depreciation | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8\n-Inc.in working capital | 7 | -3.5\nInvestment activity\n-CAPEX | 28.000000000000004\nFCF | -35 | 5.8680000000000003 | 5.8680000000000003 | 5.8680000000000003 | 5.8680000000000003 | 5.8680000000000003 | 5.8680000000000003 | 5.8680000000000003 | 5.8680000000000003 | 5.8680000000000003 | 9.3680000000000003\nr | 0.11\nc | NPV | 0.79065911708725434",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q13",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 13",
+      "prompt": "Solve Question 13 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 13",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 13",
+      "solutionText": "a & b | NPV\nDiscount Rate | 0.05 | 0.06 | 7.0000000000000007E-2 | 0.08 | 0.09 | 0.1 | 0.11 | 0.12 | 0.13 | 0.14000000000000001 | 0.15\nProject A | 20 | 13.333333333333336 | 8.5714285714285694 | 5 | 2.2222222222222214 | 0 | -1.8181818181818166 | -3.3333333333333321 | -4.6153846153846168 | -5.7142857142857153 | -6.6666666666666661\nProject B | 29.999999999999993 | 17.500000000000007 | 10 | 5 | 1.4285714285714306 | -1.25 | -3.3333333333333321 | -4.9999999999999982 | -6.3636363636363633 | -7.5000000000000018 | -8.4615384615384617\nWe can see that at 8% both projects have the same NPV. In this point both projects are equally valued with 5 mil. If r>8% then we prefer project A and if r<8% we prefer project B. If r>=0.11 (actually higher than IRR) we should not invest in any of the projects. From the graph we can also see the IRR of the projects as we just need to read the value were the two lines cross the zero line or where the NPV is 0 in the table. So the IRR of project A is between 10% and of project B it is between 9 and 10%. Analytically we can solve the perpetuity formula for r and calculate the IRRs.\nIRR\nProject A | -20+2/IRR = 0 <=> IRR = 1/10 = 0.1\nProject B | -20+1.5/(IRR - 0.02) = 0 <=> IRR = 1.5/20 + 0.02 =0.095\nIf we use the higher IRR as the criterion, we always choose project A. However, it yields a higher NPV only if the cost of capital is of at least 8%. So the decision rule of the higher IRR is only correct if the cost of capital is high enough in this example.\nPayback\nYear | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | ...\nProject A | -20 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2\nCummulative cash flows | -20 | -18 | -16 | -14 | -12 | -10 | -8 | -6 | -4 | -2 | 0 | 2 | 4 | 6 | 8 | 10\nProject B | -20 | 1.5 | 1.53 | 1.5606 | 1.591812 | 1.6236482400000001 | 1.6561212048 | 1.689243628896 | 1.7230285014739199 | 1.7574890715033984 | 1.7926388529334665 | 1.8284916299921359 | 1.8650614625919786 | 1.9023626918438181 | 1.9404099456806945 | 1.9792181445943084\nCummulative cash flows | -20 | -18.5 | -16.97 | -15.409399999999998 | -13.817587999999997 | -12.193939759999997 | -10.537818555199998 | -8.8485749263039981 | -7.1255464248300786 | -5.3680573533266802 | -3.575418500393214 | -1.7469268704010781 | 0.1181345921909005 | 2.0204972840347186 | 3.9609072297154131 | 5.9401253743097211\nIn the table we can see the returns in the first 15 years of the projects and the cumulated returns. If we apply the payback rule project A has a payback period of 10 years while project B has a payback period of 12 years, as it takes that long for the cummulated return to off-set the initial level of costs. So with this rule we would decide for Project A.",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-1-q14",
+      "source": "handbook",
+      "section": "part-1",
+      "sectionLabel": "Part 1: Time Value of Money; Interest Rates; Cash Flows Determination; Investment Decision Rules",
+      "sectionNumber": 1,
+      "title": "Part 1 Question 14",
+      "prompt": "Solve Question 14 from Part 1 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 1 · Question 14",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 1 · Question 14",
+      "solutionText": "Mutually exclusive projects with different life times should be compared using equivalent annual cash flows (EACF).\nProject A\nNPV = -5000 + 1000/0.1 = | 5000\nNPV = EACF / 0.1 <=> 5000 = EACF / 0.1 <=> EACF = 500\nProject B\nNPV = -5000 + 1500/0.1 * [1-1/(1+0.1)^10] = | 4216.8506585570285\nNPV = EACF /0.1 * [1-1/(1+0.1)^10] <=> 4216.85 = EACF / 0.1 * [1-1/(1+0.1)^10] <=> EACF = | 686.27291841031877\nProject B is the best project because it has a higher equivalent annual cash flow.",
+      "tags": [
+        "Time Value of Money",
+        "Interest Rates",
+        "Cash Flows Determination",
+        "Investment Decision Rules"
+      ]
+    },
+    {
+      "id": "part-2-q1",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 1",
+      "prompt": "Solve Question 1 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 1",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 1",
+      "solutionText": "a | Annual coupon = 5% x €5 = €0.25\nB = 0.25 / 0.06 * [1-1/(1+0.06)^5] + 5/(1+0.06)^5 = | 4.7893818107217143\nb | B = 0.25 / 0.06 * [1-1/(1+0.06)^4] + 5/(1+0.06)^4 | 4.826744719365017",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q2",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 2",
+      "prompt": "Solve Question 2 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 2",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 2",
+      "solutionText": "A | B | C | D | E\nMaturity (years) | 2 | 3 | 2 | 2 | 5.0043650613068387\nCoupon rate (EAR) | 0 | 0 | 0.02 | 0.03 | 0\nPrice | 93.85 | 92.859941091974875 | 98.086530304458478 | 89.469999928570886 | 92.82\nYield to Maturity | 3.2245174958623668E-2 | 2.5000000000000001E-2 | 0.03 | 8.9847384414605574E-2 | 1.4999999999999999E-2",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q3",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 3",
+      "prompt": "Solve Question 3 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 3",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 3",
+      "solutionText": "a | As the bond pays coupons semiannual, we need to compute the Effective YTM first. Investing at 12% annually is equivalent to investing at YTM (semester) biannually:\n(1 + 12%) = (1+ YTM (semester))^2 <=> YTM (semester) = 1.12 ^ 0.5 -1 = | 5.8300524425836331E-2\nThe coupon rate is usually stated as a stated annual rate, so the Coupon (semester) is 4%.\nNow we can use the YTM (semester) to value the bond over 40 semesters.\nB = 0.04 / 0.0583 * [1-1/(1+0.0583)^40] + 1 / (1+0.0583) ^ 40 = | 0.71864733112582768\nNotice that in this exercise we do not know the Face Value of the bond. That is why we calculate the price in percentage of the Face Value.\nb | B = 0.05 / 0.0583 * [1-1/(1+0.0583)^30] + 1 / (1+0.0583) ^ 30 = | 0.88364325062212101",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q4",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 4",
+      "prompt": "Solve Question 4 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 4",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 4",
+      "solutionText": "Data downloaded from Riksbank:\nInterest rates and exchange rates\nADVANCED RESULT 02/01/2019 - 27/01/2020\nTreasury Bills | Swedish Government Bonds\nSE 1M | SE 3M | SE 6M | SE GVB 2Y | SE GVB 5Y | SE GVB 7Y | SE GVB 10Y\nPeriod | Average | Average | Average | Average | Average | Average | Average\n2019 January | -0.45 | -0.44 | -0.35 | -0.39 | -0.05 | 0.28000000000000003 | 0.43\n2019 February | -0.4 | -0.4 | -0.35 | -0.42 | -0.11 | 0.21 | 0.36\n2019 March | -0.4 | -0.4 | -0.39 | -0.42 | -0.15 | 0.16 | 0.28999999999999998\n2019 April | -0.4 | -0.4 | -0.4 | -0.5 | -0.23 | 0.1 | 0.38\n2019 May | n/a | -0.4 | -0.4 | -0.59 | -0.39 | -0.06 | 0.22\n2019 June | -0.39 | -0.4 | -0.4 | -0.61 | -0.51 | -0.21 | 0.05\n2019 July | -0.39 | -0.4 | -0.4 | -0.57999999999999996 | -0.5 | -0.24 | 0.02\n2019 August | -0.4 | -0.43 | -0.4 | -0.64 | -0.67 | -0.5 | -0.28999999999999998\n2019 September | -0.4 | -0.41 | -0.46 | -0.6 | -0.59 | -0.43 | -0.23\n2019 October | -0.43 | -0.43 | -0.49 | -0.53 | -0.51 | -0.35 | -0.16\n2019 November | -0.42 | -0.47 | -0.5 | -0.34 | -0.33 | -0.18 | 0\n2019 December | -0.42 | -0.46 | -0.49 | -0.31 | -0.28000000000000003 | -0.13 | 7.0000000000000007E-2\nFootNote\nSE 1M (03/01/1983 00:00:00 - )\nSwedish Treasury Bill maturity 1 month\nSource: Thomson Reuters\nSE 3M (03/01/1983 00:00:00 - )\nSwedish Treasury Bill maturity 3 months\nSource: Thomson Reuters\nSE 6M (02/01/1984 00:00:00 - )\nSwedish Treasury Bill maturity 6 months\nSource: Thomson Reuters\nSE GVB 2Y (07/01/1987 00:00:00 - )\nSwedish Government Bond, maturity 2 years\nSource: Thomson Reuters\nSE GVB 5Y (02/01/1985 00:00:00 - )\nSwedish Government Bond, maturity 5 years\nSource: Thomson Reuters\nSE GVB 7Y (02/01/1980 00:00:00 - )\nSwedish Government Bond, maturity 7 years\nSource: Thomson Reuters\nSE GVB 10Y (02/01/1987 00:00:00 - )\nSwedish Government Bond, maturity 10 years\nSource: Thomson Reuters\na | T-Bill denote short-term debt and thus maturities till one year. Government bonds are issued long-term and reach 10 years in the Swedish case.\nb | 1M | 3M | 6M | 2Y | 5y | 7Y | 10Y\n2019 January | -0.45 | -0.44 | -0.35 | -0.39 | -0.05 | 0.28000000000000003 | 0.43\n2019 December | -0.42 | -0.46 | -0.49 | -0.31 | -0.28000000000000003 | -0.13 | 7.0000000000000007E-2\nc | The yield curve is upward sloping for both periods but got much flater over the year. By the end of 2019 it was nearly completely negative.This means investors were paying for the \"honor\" to invest in the Swedish government bonds.\nd | The yield for a 6 month T-Bill droped from -0,35 to -0,49, so the price of those instuments went up. As the finance ministry is issuing the bonds, it profits from a higher price. In other words, it is cheaper for them to borrow in Dec compared to Jan. Even more true if you look at the drop in the long-run yield.",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q5",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 5",
+      "prompt": "Solve Question 5 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 5",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 5",
+      "solutionText": "a | Let's find the Spot Rates (today's interest rates) for different maturities:\n1-year Interest Rate:\n97.087 = 100 / (1 + S_1) ^ 1 => S_1 = | 3.0004017015666351E-2\n2-year Interest Rate:\n93.351 = 100 / (1 + S_2) ^ 2 => S_2 = | 3.5000388254593506E-2\n3-year Interest Rate:\n89.157 = 100 / (1 + S_3) ^ 3 => S_3 = | 3.8998333812706454E-2\n4-year Interest Rate:\n84.826 = 100 / (1 + S_4) ^ 4 => S_4 = | 4.2000081558718705E-2\nb | B = 3/ (1 + 0.03) ^1 + 3/ (1 + 0.035) ^2 + 3/ (1 + 0.039) ^3 + 3/ (1 + 0.042) ^4 + 100 / (1 + 0.042) ^4 = | 95.758657946995498\nc\nB = 3/ (1 + YTM) ^1 + 3/ (1 + YTM) ^2 + 3/ (1 + YTM) ^3 + 3/ (1 + YTM) ^4 + 100 / (1 + YTM) ^4 = 95.76 => YTM = ?\nWe can solve using Goal Seek\nBond Price (as a function of YTM) | 95.760560389949134\nGoal | 95.758657946995498\nYTM | 4.1726801011019478E-2\nNotice that the YTM is higher than the coupon rate. This implies that the bond is traded below par (or at a discount).",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q6",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 6",
+      "prompt": "Solve Question 6 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 6",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 6",
+      "solutionText": "a | 1-year Spot Rate:\n100 = 106 / (1 + S_1) ^ 1 <=> S_1 = 6 % | (There was no need to compute it. As the 1-year bond is traded at par, we know that the YTM = coupon rate)\n2-year Spot Rate:\n96.428 = 5 / (1 + 0.06) ^ 1 + 105 / (1+S_2) ^ 2 <=> S_2 = | 7.0000277680970724E-2\nb | B = 100 / (1+0.07) ^ 2 = | 87.343827493261443",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q7",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 7",
+      "prompt": "Solve Question 7 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 7",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 7",
+      "solutionText": "a | Maturity (years) | 6\nPeriods | 12\nAnnual Coupon Rate | 0.05\nSemi-annual coupon | 30\nFace Value | 1200\nYTM | 0.08\n(1 + 8%) = (1+ YTM (semester))^2 <=> YTM (semester) = 1.08 ^ 0.5 -1 = | 3.9230484541326494E-2\nThe price of the bond is:\nB=30/0.03923*(1-1/(1+0.03923)^12)+1200/(1+0.03923)^12= | 1039.0220941982454\nConfirmation.\nPeriod (semesters) | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12\ncash flow | 30 | 30 | 30 | 30 | 30 | 30 | 30 | 30 | 30 | 30 | 30 | 1230\ndiscount rate | 1.0392304845413265 | 1.0800000000000003 | 1.122368923304633 | 1.1664000000000005 | 1.2121584371690037 | 1.2597120000000008 | 1.3091311121425246 | 1.3604889600000012 | 1.4138616011139267 | 1.4693280768000017 | 1.5269705292030413 | 1.5868743229440021\ndiscounted cash flow | 28.867513459481284 | 27.777777777777771 | 26.72917912914933 | 25.720164609053487 | 24.749239934397526 | 23.814967230605074 | 22.91596290221992 | 22.050895583893585 | 21.218484168722146 | 20.417495911012573 | 19.646744600668647 | 775.10864106621784\nPV= | 1039.0170663731992\nb | Each investor pays 1039.022 per bond.\nTotal amount | 15000000\n#Number of bonds | 14436.721479810831\nLast cash outflow= | 17757167.420167323\nc | 0 | 1 | 2 | 3 | 4 | 5 | 6\nCF | -3 | -3 | -3 | -3 | -3 | 24\nDiscount factor (12%) | 0.12 | 0.89285714285714279 | 0.79719387755102034 | 0.71178024781341087 | 0.63551807840483121 | 0.56742685571859919 | 0.50663112117732068\nDiscounted cash flows | -2.6785714285714284 | -2.391581632653061 | -2.1353407434402327 | -1.9065542352144935 | -1.7022805671557975 | 12.159146908255696\nNPV | 1.3448183012206822\nThe NPV of the project is $1.34M. Thus Solero must invest in the project.\nd | Yes, in this case we can trust the IRR rule because the negative cash flows preceed the positive ones.\nThe IRR rule will give the same decision as the NPV.",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q8",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 8",
+      "prompt": "Solve Question 8 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 8",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 8",
+      "solutionText": "In order to check for an arbitrage opportunity, we need to check whether we can build a self-financed portfolio that is generating a profit although it is risk-free (this is then a violation of the law of one price and so an arbitrage)\nCash Flows\nBond | Price Today | Year 1 | Year 2 | Year 3 | Number Sell | Number Buy\nA | 4575.71 | 0 | 0 | 5000 | 4\nB | 2078.8000000000002 | 100 | 100 | 2000 | 10\nC | 970.87 | 1000 | 0 | 0 | 1\nD | 961.17 | 0 | 1000 | 0 | 1\nPortfolio cash Flows: | 553.12 | 0 | 0 | 0\nYes, there is an arbitrage opportunity.\nWe will issue/sell 10 times bond B and buy 4 times bond A and one of each C and D. Thus all future cash flows set off each other and we are left with a positive amount of 553.12 today.",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q9",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 9",
+      "prompt": "Solve Question 9 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 9",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 9",
+      "solutionText": "a | S = (2 * 1.05) / (0.12-0.05) = | 30.000000000000004\nb | S = (2 * 1.08) / (0.12-0.08) * [1 - ((1+0.08)/(1+0.12))^3] + ((2 * 1.08^3 * 1.04) / (0.12-0.04)) / ((1+0.12)^3) = | 28.894132653061224",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q10",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 10",
+      "prompt": "Solve Question 10 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 10",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 10",
+      "solutionText": "a | S = 10 / 0.1 = €100\nb | We can estimate the value of the company by computing the value of the company with no additional investment plus the incremental value of investing in the marketing campaign.\nS = 10/0.1 + (-10+2.10/0.1)/(1+0.1) = | 110\nc | It creates value because the return on investment (21%) is larger than the discount rate (10%).",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q11",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 11",
+      "prompt": "Solve Question 11 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 11",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 11",
+      "solutionText": "a | Year | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | …\nGrowth rate | - | - | 0.04 | 0.04 | 0.04 | 0.04 | 0.04 | 0.03 | 0.03\nFCF | - | 37 | 38.480000000000004 | 40.019200000000005 | 41.619968000000007 | 43.284766720000007 | 45.016157388800011 | 46.366642110464014\nCost of capital | 0.14000000000000001\nNPV | 348.74547132942507\nTo NPV of the company we need to use the annuity formula for the first 6 years and then the perpetuity formula for the remaining time. Here remember the perpetuity 46,37/(0,14-0,03) gives the NPV in period 6 so we need to discount it further tiill period 0.\nb | Shares outstanding | 20\nDebt | 150\nValue of equity | 198.74547132942507\nShare Price | 9.9372735664712533\nWhen we want to find the share price we need to understand that the value of the firm is attributed to both debt and equity holders and thus only the value of equity is reflected in the share price. Notice thst as both shares outstanding and value of equity are in millions, the share price is in Dollars.\nc | Dividend | 1.2\nGrowth | 0.02\nRequired return | 0.16\nNPV of one share | 8.5714285714285712\nor share price\nUsing the dividend discount model, we estimate the value of all future dividends and thus assume that we hold the stock forever. The normal formula of a growing perpetuity applies. Note: The two share prices are not the same as both methods are just estimates that not necessarily come to the same value. We cannot compare them here in particular as issuing a dividend would change the FCFs in a) and thus the value in b).",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q12",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 12",
+      "prompt": "Solve Question 12 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 12",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 12",
+      "solutionText": "a | Earnings per share = 110 000 000 / 20 000 000 = | 5.5\nS = 5.5/ 0.15 = | 36.666666666666671\nb | NPVGO = -12 000 000 -7 000 000 / (1+0.15) ^ 1 + (10 000 000 /0.15)/ (1+0.15) ^ 1 = | 39884057.9710145\nNPVGO (per share) = | 1.994202898550725\nc | S = 36.67 + 1.99 = | 38.660869565217396",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-2-q13",
+      "source": "handbook",
+      "section": "part-2",
+      "sectionLabel": "Part 2: Bond and Stock Valuation",
+      "sectionNumber": 2,
+      "title": "Part 2 Question 13",
+      "prompt": "Solve Question 13 from Part 2 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 2 · Question 13",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 2 · Question 13",
+      "solutionText": "a | S = 5 / 0.14 = | 35.714285714285708\nb | In order to answer this question, we need to compute g* (Sustainable Growth Rate).\nThis is the rate at which a firm can grow using only retained earnings.\ng* = 25% * 20% = | 0.05\nEvery year (starting 3 years from now), the company will invest 25% of its earnings, and will earn 20% on that investment in perpetuity.\nPeriod | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | …\nInvestment in 3 | -25% x €5 | Retains and invests 25% of previous year earnings\nReturn on Investment in 3 | 25% x €5 x 20% = 5 x g* | 25% x €5 x 20% = 5 x g* | 25% x €5 x 20% = 5 x g* | 25% x €5 x 20% = 5 x g* | … | On that extra investment, earns 20% every year in perpetuity\nInvestment in 4 | -25% x €5 x (1+g*) | Again: retains and invests 25% of previous year earnings. Earnings have increased by (1+g*) due to investment in 3\nReturn on Investment in 4 | 25% x €5 x (1+g*) x 20% | 25% x €5 x (1+g*) x 20% | 25% x €5 x (1+g*) x 20% | … | On that extra investment, earns 20% every year in perpetuity\nInvestment in 5 | -25% x €5 x (1+g*)^2 | Again: retains and invests 25% of previous year earnings. Earnings have increased by (1+g*) due to investment in 4\nReturn on Investment in 5 | 25% x €5 x (1+g*)^2 x 20% | 25% x €5 x (1+g*)^2 x 20% | … | On that extra investment, earns 20% every year in perpetuity\n…\nNotice this this is a perpetuity of perpetuities. Hence:\nNPVGO = (((- 25% * 5) +(25% * 5 * 20%)/14%)/(14%-5%)) / (1+14%)^2 = | 4.5801638599422505\nThe term '((- 25% * 5) +(25% * 5 * 20%)/14%)' in the formula above is the present value of the first perpetuity. This perpetuity grows by 5% and repeats every year (also in perpetuity). It is why we divide the first term by '(14%-5%)' (perpetuity with growth).\nFinally, we need to update the value of this perpetuity of perpetuities to time zero. The formula of the first perpetuity yeilds its present value in time 3. When we apply the second perpetuity, we get the present value in time 2. So we update this value to time zero with the term '(1+14%)^2'.\nThe final share price is:\nS = 35.71 + 4.58 = | 40.294449574227961",
+      "tags": [
+        "Bond and Stock Valuation"
+      ]
+    },
+    {
+      "id": "part-3-q1",
+      "source": "handbook",
+      "section": "part-3",
+      "sectionLabel": "Part 3: Risk and Return; Diversification; CAPM",
+      "sectionNumber": 3,
+      "title": "Part 3 Question 1",
+      "prompt": "Solve Question 1 from Part 3 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 3 · Question 1",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 3 · Question 1",
+      "solutionText": "a | RP = xA*RA + xB*RB RP =0.3*10%+0.7*20% = 17% SD(RP)=(xA^2*SD(RA)^2 + xB^2*SD(RB)^2+2*xA^2*xB^2*SD(RA)*SD(RB)*CORR(RA,RB))^(1/2) SD(RP)= (0.3^2*0.05^2+0.7^2*0.15^2+0)^(1/2)=10.6%\nb | RP =0.9*10%+0.1*20% = 11% SD(RP)= (0.9^2*0.05^2+0.1^2*0.15^2+0)^(1/2)=4.7%\nc | No. 100% invested in A is not an efficient portfolio. For example, the portfolio in question b) offers higher expected return with lower volatility.",
+      "tags": [
+        "Risk and Return",
+        "Diversification",
+        "CAPM"
+      ]
+    },
+    {
+      "id": "part-3-q2",
+      "source": "handbook",
+      "section": "part-3",
+      "sectionLabel": "Part 3: Risk and Return; Diversification; CAPM",
+      "sectionNumber": 3,
+      "title": "Part 3 Question 2",
+      "prompt": "Solve Question 2 from Part 3 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 3 · Question 2",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 3 · Question 2",
+      "solutionText": "a | Wealth | 300000\nShare | Weight | Price1 | Price2\nGold Finger | 0.6 | 23 | 40\nMoosehead | 0.3 | 71 | 53\nVenture | 0.1 | 4 | 14\nHoldings of each asset | Total | Nr. Shares\nGold Finger | 180000 | 7826.086956521739\nMoosehead | 90000 | 1267.605633802817\nVenture | 30000 | 7500\nTotal | 300000\nNew value of the portfolio\nGold Finger | 313043.47826086957\nMoosehead | 67183.098591549307\nVenture | 105000\nTotal | 485226.57685241889\nNote: We cannot buy or sell fractional shares, so we would round down the number of shares. Not rounding would still get full points in the exam.\nb | Return | 0.6174219228413963\nc | Gold Finger | 0.64514907714150493\nMoosehead | 0.13845716990061527\nVenture | 0.21639375295787977\nAs we can see, the new portfolio weights are different from the old ones. This example illustrates that we must take this change into consideration when we work with portfolios.",
+      "tags": [
+        "Risk and Return",
+        "Diversification",
+        "CAPM"
+      ]
+    },
+    {
+      "id": "part-3-q3",
+      "source": "handbook",
+      "section": "part-3",
+      "sectionLabel": "Part 3: Risk and Return; Diversification; CAPM",
+      "sectionNumber": 3,
+      "title": "Part 3 Question 3",
+      "prompt": "Solve Question 3 from Part 3 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 3 · Question 3",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 3 · Question 3",
+      "solutionText": "Natasha Fund | Hannah Corporation\nER | vol | ER | vol | Correlation | RF\n0.14000000000000001 | 0.2 | 0.2 | 0.6 | 0.3 | 0.04\na | Assets | Weights | ER | SD | Variance\nNatasha Fund | 0.5 | 0.14000000000000001 | 0.2 | 4.0000000000000008E-2\nHannah Corporation | 0.4 | 0.2 | 0.6 | 0.36\nRisk Free | 0.1 | 0.04 | 0 | 0\nPortfolio | 0.15400000000000003\nVariance | 8.2000000000000017E-2\nVolatily | 0.28635642126552707\nWe calculate the return of the portfolio as weighted average of the returns of the assets. Note that the risk free asset doesn't contribute to the volatility of the portfolio as it's risk free.\nb | Assets | Weights | ER | SD | Variance\nNatasha Fund | 0.89600000000000002 | 0.14000000000000001 | 0.2 | 4.0000000000000008E-2\nHannah Corporation | 8.3000000000000004E-2 | 0.2 | 0.6 | 0.36\nRisk Free | 2.1000000000000001E-2 | 0.04 | 0 | 0\nPortfolio | 0.14288000000000003\nVariance | 3.9947176000000015E-2\nVolatily | 0.19986789637157842\nThe new portofolio has a lower expected return but also a lower volatily. Which one is better? We should choose the one that maximizes the Sharpe ratio:\nSharpe Ratio = (ER - r_f) / SD\nSharpe Ratio (old) = | 0.39810526858865963\nSharpe Ratio (old) = | 0.51473999510523571\nWe see the Sharpe ratio is higher for the new allocation, so the we should follow the advice.",
+      "tags": [
+        "Risk and Return",
+        "Diversification",
+        "CAPM"
+      ]
+    },
+    {
+      "id": "part-3-q4",
+      "source": "handbook",
+      "section": "part-3",
+      "sectionLabel": "Part 3: Risk and Return; Diversification; CAPM",
+      "sectionNumber": 3,
+      "title": "Part 3 Question 4",
+      "prompt": "Solve Question 4 from Part 3 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 3 · Question 4",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 3 · Question 4",
+      "solutionText": "SD1 | Beta(1) = Cov(R1,Rm)/Var(Rm), then:\n1.5 = Cov(R1,Rm)/(0.042), and Cov(R1,Rm) = 0.0024\nCov(R1,Rm) = Corr(R1,Rm)*SD(R1)*SD(Rm)\nor Corr(R1,Rm) = Cov(R1,Rm)/ SD(R1)*SD(Rm), then:\n1=(0.0024)/(SD(R1)*0.04), and SD(R1)=0.06\nBeta2 | Corr(R2,Rm) = Cov(R2,Rm)/ SD(R2)*SD(Rm), then\n0.5=(Cov(R2,Rm))/((0.18*0.04) , and Cov(R2,Rm)=0.0036\nBeta(2)=0.0036/0.042=2.25\nCorr3 | 0.5= (Cov(R3,Rm))/0.042, then:\nCov(R3,Rm)=0.0008 and:\nCorr(R3,Rm)=0.0008/(0.04*0.02), and Corr(R3,Rm)=1\nRemaining | The Beta of the market is always 1\nThe correlation of an assets with itself is always 1\nThe Beta of the risk free asset is always 0\nThe correlation of the risk free assets with any other asset is always 0",
+      "tags": [
+        "Risk and Return",
+        "Diversification",
+        "CAPM"
+      ]
+    },
+    {
+      "id": "part-3-q5",
+      "source": "handbook",
+      "section": "part-3",
+      "sectionLabel": "Part 3: Risk and Return; Diversification; CAPM",
+      "sectionNumber": 3,
+      "title": "Part 3 Question 5",
+      "prompt": "Solve Question 5 from Part 3 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 3 · Question 5",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 3 · Question 5",
+      "solutionText": "RF | MR | Market vol | ATP vol | correlation\n0.05 | 0.12 | 0.44 | 0.68 | 0.91\na | Beta = Cov(R_p, R_m)/Var(R_m) = Cov(R_p, R_m) / (0.44^2)\nWe know Corr (R_p, R_M) = Cov(R_p, R_m) / (SD_p x SD_m) = 0.91 <=> Cov(R_p, R_m) = 0.91 * 0.68 * 0.44\nHence:\nBeta = | 1.4063636363636365\nb | E(R_ATP) = 5% + Beta (12% - 5%) = | 0.14844545454545455",
+      "tags": [
+        "Risk and Return",
+        "Diversification",
+        "CAPM"
+      ]
+    },
+    {
+      "id": "part-3-q6",
+      "source": "handbook",
+      "section": "part-3",
+      "sectionLabel": "Part 3: Risk and Return; Diversification; CAPM",
+      "sectionNumber": 3,
+      "title": "Part 3 Question 6",
+      "prompt": "Solve Question 6 from Part 3 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 3 · Question 6",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 3 · Question 6",
+      "solutionText": "A | B\nBeta | 1.6 | 1.2\nER | 0.21 | 0.17\na | If both assets are on the SML, we know:\n21% = RF + 1.6 * MRP\n17% = RF + 1.2 * MRP\nWe subtract the two equations:\n4%=0.4*MRP\nHence, MRP = | 9.9999999999999992E-2\nPlug in one of the equations\nRF = | 4.9999999999999961E-2\nb | One the secutiry market line, an asset with beta of 1.4 has the following return:\nER | 0.18999999999999995\nThe return of the asset C is\nP = Div / r <=> r = | 0.2\nAs this asset yields a higher return than CAPM predicts, it is a profitable investment.",
+      "tags": [
+        "Risk and Return",
+        "Diversification",
+        "CAPM"
+      ]
+    },
+    {
+      "id": "part-3-q7",
+      "source": "handbook",
+      "section": "part-3",
+      "sectionLabel": "Part 3: Risk and Return; Diversification; CAPM",
+      "sectionNumber": 3,
+      "title": "Part 3 Question 7",
+      "prompt": "Solve Question 7 from Part 3 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 3 · Question 7",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 3 · Question 7",
+      "solutionText": "a | Prob. | Return (stock I) | Return (stock II)\n0.2 | 7.0000000000000007E-2 | 0.02\n0.5 | 0.15 | 0.12\n0.3 | 0.09 | 0.31\nExpected Return | 0.11599999999999999 | 0.157\nVariance | 1.2039999999999998E-3 | 1.1461000000000001E-2\nSt. Dev. | 3.4698703145794943E-2 | 0.10705606008068858\nb | Using excel's goal seek:\nweight (stock I) = | 0.65853658536585402\nportfolio return = | 0.12999999999999998\nc | You can solve the system of CAPM equations for both companies (R_company=r_f+B_company*(R_m-r_f))\nMRP | 4.0999999999999995E-2\nr_free | 5.4500000000000014E-2\nIn order to find the beta, we can do two things.\nMethod 1:\n13% = r_f + Beta * (MRP) <=> Beta = | 1.8414634146341462\nMethod 2: beta of the portfolio is the weighted average of the betas\nBeta | 1.841463414634146\nd | One can borrow at the risk free-rate to invest in the market portfolio more than the initial wealth. In this case, the weight on the risk free is higher than 100% (and the weight on the risk free is negative).",
+      "tags": [
+        "Risk and Return",
+        "Diversification",
+        "CAPM"
+      ]
+    },
+    {
+      "id": "part-3-q8",
+      "source": "handbook",
+      "section": "part-3",
+      "sectionLabel": "Part 3: Risk and Return; Diversification; CAPM",
+      "sectionNumber": 3,
+      "title": "Part 3 Question 8",
+      "prompt": "Solve Question 8 from Part 3 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 3 · Question 8",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 3 · Question 8",
+      "solutionText": "a | The portfolio of Stock 1 and Stock 2 is expected to have a lower volatility since its constituents are less correlated. Therefore the risk of this portfolio is more diversified.\nb | The beta measures how sensitive the portfolio is to the market movements. If this value is less than 1, the portfolio is considered to be relatively less sensitive or less risky.\nSince the scatterplots show the comovements of the stocks (idiosyncratic risk), they do not reveal their connection with the market (market risk). Therefore, it is possible that two correlated stocks are not affected seriously by the market. Thus, the results do not contradict with each other.\nc1 | Weights | ER | Vol | Cov\nStock 3 | 0.5 | 7.0000000000000007E-2 | 0.4 | 9.6000000000000002E-2\nStock 4 | 0.5 | 0.09 | 0.4\nER | 0.08\nc2 | Volatility | 0.35777087639996635\nc3 | What is the Beta of this portfolio?\nGiven that both assets have a beta of 0.8, the beta of the portfolio is 0.8.\nR_portfolio = 0.03 + 0.8 x (0.06 - 0.03) = | 5.3999999999999999E-2",
+      "tags": [
+        "Risk and Return",
+        "Diversification",
+        "CAPM"
+      ]
+    },
+    {
+      "id": "part-4-q1",
+      "source": "handbook",
+      "section": "part-4",
+      "sectionLabel": "Part 4: Capital Structure",
+      "sectionNumber": 4,
+      "title": "Part 4 Question 1",
+      "prompt": "Solve Question 1 from Part 4 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 4 · Question 1",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 4 · Question 1",
+      "solutionText": "r_E = | 0.12\nr_D = | 0.06\nD/E= | 0.5 | _\nt= | 0.35\nNotice that D/E = (D+E)/E-1, so\nE/(E+D) = | 0.66666666666666663\nD/(E+D) = | 0.33333333333333337\na | WACC = E/(E+D) x r_E + D/(E+D) x r_D x (1-t) = | 9.2999999999999985E-2\nb | Remember that when the capital structure changes, the required rate of return of investors changes as well. We need to calculate the new rate of return on equity:\nr_E = r_U + D/E x (r_U-r_D) x (1-t)\nWe need to estimate R_U first. Using the previous capital structure:\n0.12 = r_U + 0.5 x (r_U-0.06) x (1-0.35) => r_U = | 0.10528301886792452\nThus\nr_E = r_U + D/E x (r_U-r_D) x (1-t) = | 0.16415094339622638\nThe new D/(D+E) an E/(D+E) ratios are:\nE/(E+D) = | 0.33333333333333331\nD/(E+D) = | 0.66666666666666674\nFinally,\nWACC = E/(E+D) x r_E + D/(E+D) x r_D x (1-t) = | 8.0716981132075455E-2",
+      "tags": [
+        "Capital Structure"
+      ]
+    },
+    {
+      "id": "part-4-q2",
+      "source": "handbook",
+      "section": "part-4",
+      "sectionLabel": "Part 4: Capital Structure",
+      "sectionNumber": 4,
+      "title": "Part 4 Question 2",
+      "prompt": "Solve Question 2 from Part 4 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 4 · Question 2",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 4 · Question 2",
+      "solutionText": "a | We can calculate the value of the firm as if it was unlevered plus the present value of the tax shield (PVTS).\nV_L = V_U + PV(Tax Shield)\nV_U = EBIT(1-t) / r_U = | 17333333.333333336\nPV(Tax Shield) = (t x r_D x D) / r_D = t x D = | 3500000\nV_L | 20833333.333333336\nb | Equity = V_L - Debt = | 10833333.333333336\nr_E = r_U + D/E x (r_U-r_D) x (1-t) = | 0.18\nc | WACC = | 0.12479999999999999",
+      "tags": [
+        "Capital Structure"
+      ]
+    },
+    {
+      "id": "part-4-q3",
+      "source": "handbook",
+      "section": "part-4",
+      "sectionLabel": "Part 4: Capital Structure",
+      "sectionNumber": 4,
+      "title": "Part 4 Question 3",
+      "prompt": "Solve Question 3 from Part 4 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 4 · Question 3",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 4 · Question 3",
+      "solutionText": "a | Probability | CF at t=1 | Debt | Equity\n0.5 | 200 | 30 | 170\n0.5 | 50 | 30 | 20\nr | 0\n#shares | 100\nInitial Debt | 30\nMV Equity = PV cash flows for equity holders = (50% * 20 + 50% * 170) / (1+r) = | 95\nMV Debt | 30\nVL | 125\nShare Price = MV Equity / #shares = 95 / 100 = 0.95\nNotice that even if we ignore capital structure, the firm value is (50% * 50 + 50% * 200) / (1+r) = 125\nSo, MM I theorem holds.\nb | Probability | CF at t=1 | Old Debt | Junior Debt | Equity\n0.5 | 200 | 30 | 30 | 140\n0.5 | 50 | 30 | 20 | 0\nMV Equity = PV cash flows for equity holders = (50% * 0 + 50% * 140) / (1+r) = | 70\nMV Old Debt = | 30\nMV Junior Debt = | 25\nVL | 125\nNotice that again MM theorem holds.\nThe company is now issuing debt to perform a leveraged recapitalization. It is going to raise debt and repurchase equity. The purpose of this investment is not to pursue any investment opportunity. In general, firms might want to perform leveraged recapitalization is they are below their target leverage ratio (e.g., it is a period of low interest rates or the firm expects to enter into a growth period).\nThe new price per share needs to be such that:\n1. the amount spent in the repurchase is the expected value of the new capital in the firm.\n2. the new market value of equity is 70.\nDefining by N' the number of shares repurchased, and P' the new price, we have the following system of equations:\nN' x P' = 25\n(100 - N') x P' = 70\nThus:\nP' = 0.95\nN' = 26.32\nNotice that price per share does not change because no value is being created.",
+      "tags": [
+        "Capital Structure"
+      ]
+    },
+    {
+      "id": "part-4-q4",
+      "source": "handbook",
+      "section": "part-4",
+      "sectionLabel": "Part 4: Capital Structure",
+      "sectionNumber": 4,
+      "title": "Part 4 Question 4",
+      "prompt": "Solve Question 4 from Part 4 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 4 · Question 4",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 4 · Question 4",
+      "solutionText": "a | Without leverage\nNet Income = EBIT (1-t) = | 2000\nWith leverage\nNet Income = (EBIT - Interest Paid) x (1-t) = | 1600\nb | Buy 10% of the firm with the levered capital structure\nTo acquire 10% of the company, this investor will use €1200 (=10% x 12000), he does not need to borrow any money.\nNet Cash Flow = Dividends = 10% x 1600 = | 160\nBuy 10% of the firm with the unlevered capital structure, having the possibility of borrowing money at a 5% interest rate.\nTo acquire 10% of the company, this investor will use €2000 (=10% x 20000), he needs to borrow €800.\nNet Cash Flow = Dividends - Interest = 10% x 2000 - 5% x 800 = | 160\nc | Without leverage\nV_U = Equity = 20 000 = 2000/ r_U => r_U = 10% = r_WACC\nWith leverage\nEquity = 12 000 = 1600 / r_E => r_E = | 0.13333333333333333 | OR | 0.13333333333333333\nV_L = 20 000 = 2000 / r_WACC => r_WACC = | 0.1 | OR | 0.1\nd | Without leverage\nIn this case there is no change.\nV_U = Equity = 20 000 = 2000/ r_U => r_U = 10% = r_WACC\nWith leverage\nWe need to incorporate the present value of the interest tax shield\nV_L = 20 000 + 0.4 x 8000 = | 23200\nEquity = V_L - Debt = | 15200\nr_E = 15200 = DIV / r_E => r_E = | 0.11578947368421053 | OR | 0.11578947368421053\nV_L = 23200 = 2000 / r_WACC => r_WACC = | 8.6206896551724144E-2 | OR | 8.6206896551724144E-2\nNotice that the cost of equity (r_E) decreases relatively to the situation with no taxes.",
+      "tags": [
+        "Capital Structure"
+      ]
+    },
+    {
+      "id": "part-4-q5",
+      "source": "handbook",
+      "section": "part-4",
+      "sectionLabel": "Part 4: Capital Structure",
+      "sectionNumber": 4,
+      "title": "Part 4 Question 5",
+      "prompt": "Solve Question 5 from Part 4 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 4 · Question 5",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 4 · Question 5",
+      "solutionText": "a | Market value balance sheet (before the debt issue announcement)\nUnlevered Value £10,000,000 | Equity £10,000,000\nTotal Assets £10,000,000 | Total Equity and Liabilities £10,000,000\nShare price =Market capitalization/ # shares outstanding = £10,000,000/500,000=£20\nb | After the announcement, the value of the company increases due to the tax advantage of debt. Therefore, the new company value shall take the present value of tax shield into account. Notice that there are no further gains for the company as the debt issuance is for equity repurchase and not to invest in new projects.\nBefore computing the present value of tax shield we need to compute the appropriate discount rate in this company:\n10 000 000 = (1 500 000 x (1 - 0.4)) / r <=> r = 9%\nThe present value of the tax shield is, therefore:\nPV (tax shield) = ((2 000 000 x 0.06) x 0.6) / 0.09 = 533 333, where (2 000 000 x 0.06) are the annual interest payments.\nMarket value balance sheet (after the debt issue announcement)\nUnlevered Value £10,000,000 | Equity £10,533,333\nPV (tax shield) £533,333\nShare price = Market capitalization / # shares outstanding = £10,800,000/500,000=£21.07\nc | Number of purchased shares = 2,000,000 / 21,07=94,921 shares\nRemaining shares outstanding= 500,000 - 94,921 = 405,078 shares\nd | Market value balance sheet (after the repurchase)\nUnlevered Value £10,000,000 | Equity £8,533,333\nPV (tax shield) £533,333 | Debt £2,000,000\nShare price =Market capitalization/ # shares outstanding = £8,533,333/405,078=£21.07\nNotice that the price changed after the announcement but does not change after with the repurchase itself (stock prices react to information).",
+      "tags": [
+        "Capital Structure"
+      ]
+    },
+    {
+      "id": "part-4-q6",
+      "source": "handbook",
+      "section": "part-4",
+      "sectionLabel": "Part 4: Capital Structure",
+      "sectionNumber": 4,
+      "title": "Part 4 Question 6",
+      "prompt": "Solve Question 6 from Part 4 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 4 · Question 6",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 4 · Question 6",
+      "solutionText": "a | Expected earnings: $35m (before interest) in perpetuity.\nPayout=100%\nBoth companies have the same earnings (perfectly correlated), and given that there are no tax shield due to the absence of taxes, then both companies should have the same value.\nDebt+ | NoDebt\nEBIT | 35 | 35\nDebt | 150 | 0\nrd | 7.0000000000000007E-2 | -\n#shares | 1,5 | 3,6\nShare price | 115 | 86\nt | 0 | 0\nMV Equity (#shares x price) | 172.5 | 309.60000000000002\nMV Debt | 150 | 0\nVL | 322.5 | 309.60000000000002\nAs the value is not the same, there is an arbitrage opportunity. One should buy the cheaper company and sell the expensive one.\nb | We should buy the cheapest (go 'Long') and sell the most expensive ('short-sell'). This means buying NoDebt and short-selling Debt+.\nThe question asks to construct a:\ni) Zero Risk\nii) Zero investment\niii) $1 Million long in NoDebt\niv) Generates a positive return in perpetuity\nThis means the following:\ntoday | t=1 | t=2 | ...\nLong in NoDebt | -1\nShort-sell Debt+ | y\n...\nTotal | 0 | return>0 | return>0 | return>0\nStep1 | Step 1: Define y (how much we short-sell of Debt+):\nEvery period we will receive in dividends from NoDebt the proportional to our ownership in the company. This is $1M out of 309.6. So, the total dividends are:\nInflow = earnings * (1/309.6)\nEvery period, we need to pay back Debt+ holders (stockholders and debt holders). So, we need to pay the proportional to our \"short\" ownership in the company.\nOutflow=(earnings + 0.07*150) * (y/172.5)\nWe are given the information that the earnings are perfectly correlated (the companies are actually the same, only the capital structure changes). So, we can wonder what is the effect of a change in earnings by $1. This is equivalent to taking the derivative. We want the effect on inflows and outflows to complete offset each other.\nIf we take the derivative with respect to earnings, we get:\nd(inflow)/d(earnings)=1/309.6\nd(outflow)/d(earnings)=y/172.5\nThe change in earnings is complete offset when 1/309.6=y/172.5. This means that we should short-sell y=0.557 of Debt+.\nNotice that 0.557 is MV Equity (Debt+)/MV Equity (NoDebt). In other words, the optimal investment level that offsets changes in both companies' earnings is equal to their ratio of market values.\ntoday | t=1 | t=2 | ...\nLong in NoDebt | -1\nShort-sell Debt+ | y = 0.557\n...\nTotal | 0 | return>0 | return>0 | return>0\nStep2 | Step 2: How much should be borrow?\nWe know that in period zero we should make a zero investment. So, we still need to borrow 1-0.557=0.443 million.\nStep3 | Step 2: Check if all conditions are satisfied\ntoday | t=1 | t=2 | ...\nLong in NoDebt | -1 | earnings * (1/309.6)\nShort-sell Debt+ | 0.55700000000000005 | -(earnings + 0.07*150) * (0.557/172.5) | ...\nBorrow at 7% | 0.443 | -0.07*0.443\nTotal | 0 | 0.002917>0 | 0.002917>0 | 0.002917>0\nNo matter what earnings are, you will always get $0,002917M in perpetuity. Instead of starting with $1M, you can start with how much you want provided that the initial investment is always zero and you become richer and richer.\nComments | As you see this exercise has a level of complexity higher than we ever discussed in class. Its difficulty is almost as high as identifying arbitrage opportunities in real life.",
+      "tags": [
+        "Capital Structure"
+      ]
+    },
+    {
+      "id": "part-4-q7",
+      "source": "handbook",
+      "section": "part-4",
+      "sectionLabel": "Part 4: Capital Structure",
+      "sectionNumber": 4,
+      "title": "Part 4 Question 7",
+      "prompt": "Solve Question 7 from Part 4 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 4 · Question 7",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 4 · Question 7",
+      "solutionText": "a | 0 | 1 | 2 | 3\nSales | 600000 | 800000 | 1200000\nCosts | 300000 | 500000 | 700000\nEBITDA | 0 | 300000 | 300000 | 500000\nDepreciation | 150000 | 150000 | 150000\nEBIT | 0 | 150000 | 150000 | 350000\nTaxes | 0 | 45000 | 45000 | 105000\nNOPAT | 0 | 105000 | 105000 | 245000\nDepreciation | 150000 | 150000 | 150000\nCAPEX | 600000\nAsset Resale | 200000\nTaxes on Resale* | 15000\nNWC | 60000 | 80000 | 120000 | 0\nChange in NWC | -60000 | -20000 | -40000 | 120000\nInvestment CF | -660000 | -20000 | -40000 | 305000\nFCF | -660000 | 235000 | 215000 | 700000\n* Notice that if you sell an asset for a price above its accounting value, you need to pay taxes on capital gains. Specifically, the asset is worth 150 000 (600 000 - 3* 150 000). As you sell for 200 000, you need to pay taxes on the 50 000 profit.\nb | We need to find the required return rate on the unleveraged company (r_U). Using the CAPM equation, we know that:\nr_U = r_f + Beta_U x MRP = 5% + Beta_U * 6% = ?\nWe are not given information about the unlevered Beta for this company. Our best guess is to look at similar firms in this industry (similar to a 'Multiples' approach). Fortunately, we are given information about the industry, hence:\nBeta_E = Beta_U + D/E x (Beta_U - 0) x (1-t) <=> Beta_U = 1.25 / (1 + 1.5 x (1-30%)) = | 0.60975609756097571\nThus:\nr_U = r_f + Beta_U x MRP = 5% + 0.60975 * 6% = | 8.6585365853658544E-2\nSo, now we can compute the NPV by discounting the FCF at the appropriate discount rate:\nFCF | -660000 | 235000 | 215000 | 700000\nDiscount Factor | 1 | 0.9203142536475869 | 0.84697832546691487 | 0.7794862254577668\nDiscount Free Cash Flow | -660000 | 216273.84960718293 | 182100.33997538668 | 545640.35782043671\nNPV | 284014.54740300629\nc | We need to repeat the process for the new capital structure and find r_WACC.\nBeta_E = Beta_U + D/E x (Beta_U - 0) x (1-t) <=> Beta_E = 0.6098 x (1 + 1 x (1-30%)) = | 1.0365853658536586\nr_E = r_f + Beta_E x MRP = 5% + 1.0366 * 6% = | 0.11219512195121951\nWACC = | 7.3597560975609752E-2\nFCF | -660000 | 235000 | 215000 | 700000\nDiscount Factor | 1 | 0.93144771965695472 | 0.86759485445414086 | 0.80811924876741703\nDiscount Free Cash Flow | -660000 | 218890.21411938436 | 186532.89370764029 | 565683.47413719189\nNPV | 311106.58196421654\nAs we see, the tax benefit associated with leverage increases the value of the project.",
+      "tags": [
+        "Capital Structure"
+      ]
+    },
+    {
+      "id": "part-5-q1",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 1",
+      "prompt": "Solve Question 1 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 1",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 1",
+      "solutionText": "How to read these values?\nTo buy 1 GBP, you pay 1.632\nto sell 1 GBP, you receive 1.6296\na | If we sell £10 million, we receive £10 m x 1.6296 = € 16.296 m\nb | Selling EUR is equivalent to buy GBP. You receive €12 m / 1.6320 = £ 7.353 m",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q2",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 2",
+      "prompt": "Solve Question 2 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 2",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 2",
+      "solutionText": "a | Spot EUR/AUD | 0.67249999999999999 | 0.67349999999999999\nOne-month forward premium | 1E-3 | 1.5E-3\nOne month forward | 0.67349999999999999 | 0.67499999999999993\nHow to read these values?\nToday: to buy 1 AUD, you pay €0.6735\nToday: to sell 1 AUD, you get €0.6725\nIn one month: to buy 1 AUD, you pay €0.675\nIn one month: to sell 1 AUD, you get €0.6735\nb | To buy one AUD, we will pay more euros in one month. This means the AUD appreciates (becomes more expensive).\nc | To sell euro is the equivalent to buy AUD. So, to sell €350 000 is equivalent to buy 350 000 / 0.6735 = | 519673.34818114329\nd | To sell AUD is the equivalent to buy euro. So, to sell AUD 450 000 is equivalent to buy 450 000 x 0.6735 = | 303075\ne | Using the EUR/AUD mid rate: 0.6730\n0.673 * (1-0.03) ^ 4 * (1+0.1)^2 = | 0.72092049396730007",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q3",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 3",
+      "prompt": "Solve Question 3 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 3",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 3",
+      "solutionText": "Using the interest rate parity, we know that:\n1+r (GBP) = S_0 x (1+ r(Euro)) / F_1 <=> r(Euro) = 1.05 * 0.8082 / 0.8160 -1 = 4%",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q4",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 4",
+      "prompt": "Solve Question 4 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 4",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 4",
+      "solutionText": "Using the Relative Purchasing Power Parity:\nS_1 is approx. S_0 x [ 1 + (i_UK - i_US)] = 0.6120 x (1+ (0.03-0.05)) = | 0.59975999999999996",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q5",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 5",
+      "prompt": "Solve Question 5 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 5",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 5",
+      "solutionText": "a | Using the Relative Purchasing Power Parity:\n1-Year:\nS_1 = 0.8240 * (1+0.02) / (1+0.01) = | 0.83215841584158412\n2-Year:\nS_2 = 0.8322 * (1+0.03) / (1+0.03) = | 0.83220000000000005\n3-Year:\nS_3 = 0.8322 * (1+0.04) / (1+0.02) = | 0.8485176470588236",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q6",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 6",
+      "prompt": "Solve Question 6 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 6",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 6",
+      "solutionText": "a | The company just received US$ 1 million.\nIf it invests now in the US, by the end of the 12-month period, it will have.\nFV = 1000000 * (1 + S_US) = 1000000 * (1 + 0.07625) = | 1076250\nIf it decides to invest in Switzerland, it needs to convert US$ 1 m to CHF, invest at the risk free rate in Switzerland, and converbt back to dollar in the end of the year.\nThis strategy yields:\nFV = 1000000 * 1.3125 * (1 + 0.045626) / 1.275 = | 1076379.705882353\nThe minimal difference of $129 can be attributed to the operation of IRP. Transaction costs would wipe out any gain from arbitrage.",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q7",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 7",
+      "prompt": "Solve Question 7 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 7",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 7",
+      "solutionText": "New York price in one year = $2.00 * (1+0.02) = | 2.04\nLondon price in one year = £1.00 * (1+0.04) = | 1.04\nExchange rate under PPP = ($2.04 / £1.04) = | $1.96 per £1",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q8",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 8",
+      "prompt": "Solve Question 8 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 8",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 8",
+      "solutionText": "FDI differs from domestic investment for many reasons:\n■ Exposure to FX risk.\n■ Likelihood of inflation abroad occurring at rates different from home inflation.\n■ Risk of political intervention, leading to blocked funds, etc.\n■ Access to concessionary finance and grants.\n■ Overspill effects on existing operations.",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q9",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 9",
+      "prompt": "Solve Question 9 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 9",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 9",
+      "solutionText": "a1) | 0 | 1 | 2 | 3\nNet operating cash flows | 4250 | 6500 | 8350\nNet operating cash flows (OJ's 50% share) | 2125 | 3250 | 4175\nDividends (up to 50% in the first three years) | 1062.5 | 1625 | 2087.5\nRemaining dividends | 4775\nCash Flows in SA$ 000 | 0 | 1062.5 | 1625 | 6862.5\nExpected exchange rate | 10 | 15 | 21\nInvestment in GBP | -450\nCash Flows in GBP | -450 | 106.25 | 108.33333333333333 | 326.78571428571428\nDiscount Factor | 1 | 0.86206896551724144 | 0.74316290130796681 | 0.64065767354135073\nDiscount Cash Flows in GBP | -450 | 91.594827586206904 | 80.509314308363074 | 209.35777546083426\nNPV | -68.538082644595761\nIn this scenario, OJ should reject the project.\na2) | 0 | 1 | 2 | 3\nNet operating cash flows | 4250 | 6500 | 8350\nNet operating cash flows (OJ's 50% share) | 2125 | 3250 | 4175\nDividends (up to 100%) | 2125 | 3250 | 4175\nRemaining dividends\nCash Flows in SA$ 000 | 0 | 2125 | 3250 | 4175\nExpected exchange rate | 10 | 15 | 21\nInvestment in GBP | -450\nCash Flows in GBP | -450 | 212.5 | 216.66666666666666 | 198.8095238095238\nDiscount Factor | 1 | 0.86206896551724144 | 0.74316290130796681 | 0.64065767354135073\nDiscount Cash Flows in GBP | -450 | 183.18965517241381 | 161.01862861672615 | 127.36884700167329\nNPV | 21.577130790813271\nIn this scenario, the positive NPV indicates acceptance, but the project is marginal, .e.g, the profitability index (NPV / Outlay = 21 / 450) is only 0.047. Given the risk of exchange controls being imposed, this suggests that OJ should treat the project with great caution.\nb | See above.",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q10",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 10",
+      "prompt": "Solve Question 10 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 10",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 10",
+      "solutionText": "a | 0 | 1 | 2 | 3 | 4\nHome | Net Cash Flows (in C$) | 60 | 60 | 60 | 45\nCurrency | Terminal Value | 50\nApproach | Initial Investment (in C$) | -150\nCash Flows in C$ | -150 | 60 | 60 | 60 | 95\nExpected Exchange Rate | 1.7 | 1.7849999999999999 | 1.87425 | 1.9679625000000001 | 2.0663606250000002\nCash Flows in £ | -88.235294117647058 | 33.613445378151262 | 32.012805122048817 | 30.488385830522684 | 45.974550061899286\nDiscount Factor | 1 | 0.8771929824561403 | 0.76946752847029842 | 0.67497151620201612 | 0.59208027737018942\nDiscount Cash Flows in £ | -88.235294117647058 | 29.485478401887072 | 24.632814036664215 | 20.57879201057996 | 27.220624352618987\nNPV | 13.682414684103176\nb | The appropriate discount rate should incorporate the actual discount rate plus additional compensation for the appreciatiation of the sterling. Why do investors 'demand' compensation? If they had kept sterling currency, their wealth would appreciate. As they invest in a different currency, they bear an extra (opportunity) cost of investing in a different currency. Therefore:\nForeign\nCurrency\nApproach\nDiscount rate = 1.14 * (1.05) -1 = | 0.19699999999999984\nCash Flows in C$ | -150 | 60 | 60 | 60 | 95\nDiscount Factor (using appropriate discount rate) | 1 | 0.83542188805346707 | 0.69792973103881972 | 0.5830657736330993 | 0.48710590946791932\nDiscount Cash Flows in $C | -150 | 50.125313283208023 | 41.875783862329186 | 34.983946417985962 | 46.275061399452333\nNPV in $C | 23.260104962975497\nNPV in £ | 13.682414684103234",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q11",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 11",
+      "prompt": "Solve Question 11 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 11",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 11",
+      "solutionText": "a | This analysis is from the perspective of a Korean investor, so Korea is the home country and the U.S is the foreign country. The interest rate parity relationship uses direct quotes for exchange rates; direct quotes are number of units of home currency per unit of foreign currency. Therefore, a direct quote from a Korean perspective is the number of won per dollar. According to interest rate parity, the following condition holds:\n(1+R_f_US)=S_0 x (1 + R_f_SK) x 1/ F_1\nF_1 = | 1039.9038461538462 | Won / US dollar\nAnd\n(1+R_f_US)^2=S_0 x (1 + R_f_SK)^2 x 1/ F_2\nF_2 = | 1029.9527284647102 | Won / US dollar\nb | First, we must adjust the cash flows to reflect Quia Motors' home currency.\nThe expected Won denominated cash flows are:\nYear 0: | Year 1: | Year 2:\nCF (US) | -1000000 | 700000 | 600000\nExchange Rate | 1050 | 1039.9038461538462 | 1029.9527284647102\nCF (Won) | -1050000000 | 727932692.30769229 | 617971637.07882607\nNow, using the won-denominated cash flows, the appropriate NPV and rate of return can be found.\nDiscount rate | 0.13\nPeriods | 0 | 1 | 2\nDiscount factor | 1 | 0.88495575221238942 | 0.78314668337379612\nDiscounted CF | -1050000000 | 644188223.28114367 | 483962437.99735785\nNPV | 78150661.278501511\nThe NPV of this project is 78 million South Korean won.\nWhat is the IRR of this project?\nIt must be such that NPV=0\nUsing Goal seek:\nInternal Rate of Return | 0.188477815064613\nPeriods | 0 | 1 | 2\nDiscount factor | 1 | 0.84141242463632682 | 0.70797486833238243\nDiscounted CF | -1050000000 | 612491611.60666466 | 437508388.39402872\nNPV | 6.9338083267211914E-4\nThe IRR is 18.85%.\nb | One dollar will buy more South Korean won.\nd | The foreign project’s cash flows have to be converted to U. S. dollars, since the shareholders of the U. S. corporation (assuming they are mainly U. S. residents) are interested in dollar returns. This subjects them to exchange rate risk, and therefore requires an additional risk premium. There is also a risk premium for political risk (mainly the risk of expropriation). However, foreign investments also help diversify cash flows, so the net effect on the required rate of return is ambiguous.",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q12",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 12",
+      "prompt": "Solve Question 12 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 12",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 12",
+      "solutionText": "a | Exposure of US operations = US$(50m - 30m) = 20m\nExposure of South America operations = US$100m\nTotal exposure | US$120m\nb | Producing more output in the US and shipping to South America.\nSourcing more USD-denominated inputs to support UK production.\nBorrowing in USD.",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q13",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 13",
+      "prompt": "Solve Question 13 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 13",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 13",
+      "solutionText": "■ Source materials and services from local suppliers.\n■ Employ locals in key management posts.\n■ Invest in training programmes for locals.\n■ Invest in sports and health facilities, open to the wider population.\n■ Sponsor local cultural events.\n■ Undertake joint ventures with local firms.\n■ Reinvestment rather than repatriation of profits.\n■ Use local sources of finance.",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q14",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 14",
+      "prompt": "Solve Question 14 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 14",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 14",
+      "solutionText": "Raw material prices – specifically, flour and sugar | Hedging in commodity markets\nInterest rate movements on its variable-rate borrowings | Hedging in financial markets\nCurrency movements on imports and exports | Hedging in currency markets\nLoss of profits, e.g. lost production from a possible bakery fire | Insurance",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q15",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 15",
+      "prompt": "Solve Question 15 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 15",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 15",
+      "solutionText": "Note: The following answer has not been updated and it relates to the 2019 financial report.\nRegarding the 2019 financial report (Section \"Risk Factors\"), Ericsson managers carefully explain the different sources of exposure to risk to investors. Examples include geopolitical risk, demand risk (increasing preferences for digital products), introduction of 5G, competition, etc.",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-5-q16",
+      "source": "handbook",
+      "section": "part-5",
+      "sectionLabel": "Part 5: International Corporate Finance; International Capital Budgeting; Risk Management",
+      "sectionNumber": 5,
+      "title": "Part 5 Question 16",
+      "prompt": "Solve Question 16 from Part 5 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 5 · Question 16",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 5 · Question 16",
+      "solutionText": "a | It should let it lapse as the spot price is cheaper than the exercise option.\nb | An option gives the right, but not the obligation, to buy or sell an asset at an agreed price at, or up to, an agreed time. It is the right not to exercise the option that distinguishes it from a future.",
+      "tags": [
+        "International Corporate Finance",
+        "International Capital Budgeting",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "part-6-q1",
+      "source": "handbook",
+      "section": "part-6",
+      "sectionLabel": "Part 6: Equity Capital",
+      "sectionNumber": 6,
+      "title": "Part 6 Question 1",
+      "prompt": "Solve Question 1 from Part 6 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 6 · Question 1",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 6 · Question 1",
+      "solutionText": "The enterpreneur needs €200 000 for a company worth €800 000. Thus, he is willing to sell part of the company.\nLet's start by computing the current price per share:\nP = 800 000 / 40 000 = | 20\nThus, the entrepreneur should sell:\n200 000 / 20 = 10 000 shares",
+      "tags": [
+        "Equity Capital"
+      ]
+    },
+    {
+      "id": "part-6-q2",
+      "source": "handbook",
+      "section": "part-6",
+      "sectionLabel": "Part 6: Equity Capital",
+      "sectionNumber": 6,
+      "title": "Part 6 Question 2",
+      "prompt": "Solve Question 2 from Part 6 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 6 · Question 2",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 6 · Question 2",
+      "solutionText": "The company plans to raise additional funding through the issue of new shares. The new shares will be issued at €22.\nAs there is an underwriter's fee of 5%, this means the company effectively receives €22 x (1-0.05) = €20.90 per share.\nMoreover the company has other direct costs in the amount of €150 000.\nIn order to obtain effectively €20 million after fees and flotation expenses, the company nees to issue:\nNr. Shares x Price per share - cost = 20 million <=> Nr. Shares = | 964114.83253588527 | Shares",
+      "tags": [
+        "Equity Capital"
+      ]
+    },
+    {
+      "id": "part-6-q3",
+      "source": "handbook",
+      "section": "part-6",
+      "sectionLabel": "Part 6: Equity Capital",
+      "sectionNumber": 6,
+      "title": "Part 6 Question 3",
+      "prompt": "Solve Question 3 from Part 6 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 6 · Question 3",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 6 · Question 3",
+      "solutionText": "a | Nr. Shares x (20 x (1-0.07)) = 30 + 0.8 <=> Nr. Shares = | 1.655913978494624 | million shares\nb | Amount left of the table = (Closing Price - Offer Price) x (Number of Shares) = (22-20) x 1.656 = | 3.3119999999999998 | million\nc | Underwriting cost = 7% x €20 x 1.656 = | 2.3184\nTotal costs of IPO = 0.8 + 3.312 + 2.318 = | 6.4304000000000006 | million",
+      "tags": [
+        "Equity Capital"
+      ]
+    },
+    {
+      "id": "part-6-q4",
+      "source": "handbook",
+      "section": "part-6",
+      "sectionLabel": "Part 6: Equity Capital",
+      "sectionNumber": 6,
+      "title": "Part 6 Question 4",
+      "prompt": "Solve Question 4 from Part 6 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 6 · Question 4",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 6 · Question 4",
+      "solutionText": "a | From the table we can see that the underwriter's fee is €5 x 3 million -14 milllion = €1 million.\nIf the average price is €5 per share, the underwrite receives €1million and has a cost of €0.3 million.\nThus, the profit is €700 000.\nb | If the average price is €6 per share, the underwriter's fee is €6 x 3 million -14 milllion = €4 million.\nThus, the profit is €3 700 000.\nc | If the average price is €4 per share, the underwriter's fee is €4 x 3 million -14 milllion = - €2 million.\nThus, the loss is €2 300 000.",
+      "tags": [
+        "Equity Capital"
+      ]
+    },
+    {
+      "id": "part-6-q5",
+      "source": "handbook",
+      "section": "part-6",
+      "sectionLabel": "Part 6: Equity Capital",
+      "sectionNumber": 6,
+      "title": "Part 6 Question 5",
+      "prompt": "Solve Question 5 from Part 6 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 6 · Question 5",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 6 · Question 5",
+      "solutionText": "a | The current value of equity is €60 million, and there are 4 million shares outstanding. The company will raise 1 million shares. This means that the new investors will hold 1/5 of the company.\nThe offer price needs to be such that the amount invested by the new shareholders corresponds to 1/5 of the company. Thus:\n1/5 x (New value of Firm) = Amount invested, where New Value of the Firm = 60 + Amount invested x (1-0.07)\nThus:\n1/5 x (60 + Amount invested x (1-0.07)) = Amount invested <=> Amount invested = (60/5) / (1-(1-0.07)/5) = | 14.74201474201474\nb | Zang will raise €14.74 million x (1-0.07) = | 13.7082 | million\nc | The initial price per share is 60/4 = | 15\nThe new price per share is (60+13.708)/5 = | 14.74164\nThe stock price dropped by | 1.7223999999999979E-2\nIn this case the stock price decreases due to the underwriter's fee and due to the fact that there is no increase in the fundamental value of the firm (i.e. more revenues, ...). In practice, the inflow of funding could be invested in new projects and the equity value of the company could increase.",
+      "tags": [
+        "Equity Capital"
+      ]
+    },
+    {
+      "id": "part-7-q1",
+      "source": "handbook",
+      "section": "part-7",
+      "sectionLabel": "Part 7: Mergers and Acquisitions",
+      "sectionNumber": 7,
+      "title": "Part 7 Question 1",
+      "prompt": "Solve Question 1 from Part 7 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 7 · Question 1",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 7 · Question 1",
+      "solutionText": "a | Managerial motives reduce to the three Ps - power, pay and prestige, all of which are enhanced by size of firm.\nb | If managers are paid according to growth in EPS, a takeover that exploits synergies may enhance their bonuses. However, if financed by debt, the value of the firm could actually fall. Takeovers that aim to reduce risk rarely benefit shareholders, for whom systematic risk is normally more relevant than total risk.\nc | Cash is more certain, whereas the value of shares is volatile - by the time payment is made, the share value might have fallen. Investors wishing to liquidate the shares received will incur dealing fees.",
+      "tags": [
+        "Mergers and Acquisitions"
+      ]
+    },
+    {
+      "id": "part-7-q2",
+      "source": "handbook",
+      "section": "part-7",
+      "sectionLabel": "Part 7: Mergers and Acquisitions",
+      "sectionNumber": 7,
+      "title": "Part 7 Question 2",
+      "prompt": "Solve Question 2 from Part 7 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 7 · Question 2",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 7 · Question 2",
+      "solutionText": "a | The NPV of the bid for Predator’s shareholders = (£1,000m + £200m + £50m) - (£1,000m + £230m) = £20m.\nb | Prey’s shareholders benefit by £30m (60 per cent of gains), and those of Predator by £20m (40 per cent), if the bid is completed at this price.",
+      "tags": [
+        "Mergers and Acquisitions"
+      ]
+    },
+    {
+      "id": "part-7-q3",
+      "source": "handbook",
+      "section": "part-7",
+      "sectionLabel": "Part 7: Mergers and Acquisitions",
+      "sectionNumber": 7,
+      "title": "Part 7 Question 3",
+      "prompt": "Solve Question 3 from Part 7 using the original handbook wording. Use the attached PDF for the full prompt, then self-assess against the solution.",
+      "promptStatus": "placeholder",
+      "sourceRef": "exercise_handbook_2023_24.pdf · Part 7 · Question 3",
+      "solutionRef": "exercise handbook solutions.xlsx · Part 7 · Question 3",
+      "solutionText": "a | The value of the target can be computed using the perpetuity with growth formula:\nP(new) = 0.8 / (discount rate - 0.08)\nWe are not given the discount rate, so we should compute it using the current valuation:\nP(current) = 20 = 0.8 / (discount rate - 0.06) <=> discount rate = | 0.1\nThus:\nP(new) = 0.8 / (0.1 - 0.08) = | 39.999999999999993 | per share\nb | Value of equity = Nr. Shares x Share Price = 40 x 0.6 million = 24 million\nNotice that the previous equity value of 20 x 0.6 = 12 million.\nSo the equity value of the target firm if the acquisition goes ahead increases by £12 million.\nc | Price paid = £25 x 0.6 million = 15 million\nEquity of target = 12 million\nCost | 3 million\nNPV of acquisition = benefit of acquisition - cost of acquisition = £12 million - £3 million = £9 million\nAs the NPV is positive, it is advised to go ahead with the transaction.\nd | How many acquirer's shares are required?\n0.6 million / 3 = 0.2 million\nThe new number of shares outstanding is 1.2 million\nValue of the new company = Value of Acquirer + Value of Target + Synergies = 90 +12 + 12 = 114\nValue per share = 114 / 1.2 = £95 per share\n'Price' paid = £95 x 0.2m = £19 million\nEquity of target = 12 million\nCost | £7 million\nNPV of acquisition = benefit of acquisition - cost of acquisition = £12 million - £7 million = £5 million\nAs the NPV is positive, it is advised to go ahead with the transaction.\ne1 | Cost of cash bid unchanged. Pointless to proceed as there are no gains.\ne2 | With the share exchange:\nValue of the new company = Value of Acquirer + Value of Target + Synergies = 90 +12 + 0 = 102\nValue per share = 102 / 1.2 = £85 per share\n'Price' paid = £85 x 0.2m = £17 million\nEquity of target = 12 million\nCost | 5 million\nNPV of acquisition = benefit of acquisition - cost of acquisition = 0 - £5 million = - £5 million\nAdvise not to proceed on this basis.",
+      "tags": [
+        "Mergers and Acquisitions"
+      ]
+    }
+  ]
+}

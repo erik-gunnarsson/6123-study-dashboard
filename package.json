@@ -1,0 +1,14 @@
+{
+  "name": "studyprep-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:catalog": "python3 scripts/build_catalog.py",
+    "serve": "python3 -m http.server 4173",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2"
+  }
+}
