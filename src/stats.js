@@ -1,4 +1,5 @@
 import { buildQuestionHistory, scoreQuestion } from "./queue.js";
+import { computeProgressionStats } from "./progression.js";
 
 function percentage(value, total) {
   if (total === 0) {
@@ -89,5 +90,6 @@ export function computeDashboardStats(catalog, attempts) {
       .sort((left, right) => right.createdAt.localeCompare(left.createdAt))
       .slice(0, 8),
     mostMissed,
+    progression: computeProgressionStats({ attempts, questionStatuses }),
   };
 }

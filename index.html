@@ -92,11 +92,33 @@
       <main class="app-grid">
         <div class="sidebar-column">
           <aside class="panel stack sidebar-panel">
+            <section id="progression-panel" class="progression-panel" aria-label="XP progression">
+              <div class="progression-header">
+                <div class="progression-level">
+                  <span id="current-level-emoji" class="current-level-emoji" aria-hidden="true">🐣</span>
+                  <div class="progression-copy">
+                    <strong id="current-level-label">Level 1</strong>
+                    <p id="current-level-xp" class="helper-copy">0 XP earned</p>
+                  </div>
+                </div>
+                <div id="level-confetti" class="level-confetti" aria-hidden="true"></div>
+              </div>
+            </section>
+
             <section class="sidebar-status">
               <div class="section-heading sidebar-heading">
                 <h2>Progress map</h2>
               </div>
               <div id="sidebar-question-matrix" class="question-matrix question-matrix-compact" aria-label="Compact question outcome matrix"></div>
+              <div class="progression-track-wrap">
+                <div class="progression-track-header">
+                  <span id="progression-track-label" class="helper-copy">Progress to next level</span>
+                  <span id="next-level-emoji" class="next-level-emoji" aria-hidden="true">🐢</span>
+                </div>
+                <div class="xp-track" aria-hidden="true">
+                  <span id="xp-progress-fill" class="xp-progress-fill"></span>
+                </div>
+              </div>
             </section>
 
             <section>
