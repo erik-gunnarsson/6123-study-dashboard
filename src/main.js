@@ -609,7 +609,7 @@ async function handleFeedbackSubmission(event) {
     }
 
     elements.feedbackMessage.value = "";
-    setFeedbackStatus("Sent to Discord. Thank you.", "success");
+    setFeedbackStatus("Sent to Erik. Thank you.", "success");
   } catch (error) {
     setFeedbackStatus(error instanceof Error ? error.message : "Feedback could not be sent.", "error");
   } finally {
