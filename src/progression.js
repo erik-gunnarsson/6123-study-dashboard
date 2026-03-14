@@ -1,9 +1,12 @@
 const LEVELS = [
   { emoji: "🐣", label: "Level 1", xpRequired: 0 },
-  { emoji: "🐿️", label: "Level 2", xpRequired: 60 },
-  { emoji: "🦊", label: "Level 3", xpRequired: 140 },
-  { emoji: "🦁", label: "Level 4", xpRequired: 260 },
-  { emoji: "🐉", label: "Level 5", xpRequired: 420 },
+  { emoji: "🐢", label: "Level 2", xpRequired: 40 },
+  { emoji: "🐿️", label: "Level 3", xpRequired: 85 },
+  { emoji: "🐈", label: "Level 4", xpRequired: 145 },
+  { emoji: "🦊", label: "Level 5", xpRequired: 225 },
+  { emoji: "🐺", label: "Level 6", xpRequired: 325 },
+  { emoji: "🦁", label: "Level 7", xpRequired: 450 },
+  { emoji: "🐉", label: "Level 8", xpRequired: 600 },
   { emoji: "🧙‍♂️", label: "Mastery", xpRequired: null },
 ];
 
