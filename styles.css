@@ -922,10 +922,29 @@ textarea {
 .study-secondary-actions {
   justify-content: center;
   margin-top: 4px;
+  align-items: center;
+  gap: 10px;
 }
 
 .study-secondary-actions > * {
   flex: 0 1 auto;
+}
+
+.study-secondary-status {
+  margin-top: 6px;
+  text-align: center;
+}
+
+.study-secondary-status.is-success {
+  color: #166534;
+}
+
+.study-secondary-status.is-error {
+  color: #b42318;
+}
+
+.study-secondary-status.is-pending {
+  color: #0f766e;
 }
 
 pre {

@@ -1,5 +1,6 @@
 import { loadCatalog, buildSectionOptions, getQuestionById } from "./catalog.js";
 import { trackAnalyticsEvent } from "./analytics.js";
+import { openAiExplain } from "./aiExplain.js";
 import {
   getProfiles,
   saveProfile,
@@ -85,6 +86,8 @@ const elements = {
   questionPrompt: document.querySelector("#question-prompt"),
   questionPromptNote: document.querySelector("#question-prompt-note"),
   toggleSolution: document.querySelector("#toggle-solution"),
+  aiExplain: document.querySelector("#ai-explain"),
+  aiExplainStatus: document.querySelector("#ai-explain-status"),
   solutionPanel: document.querySelector("#solution-panel"),
   solutionRef: document.querySelector("#solution-ref"),
   solutionText: document.querySelector("#solution-text"),
@@ -127,6 +130,11 @@ function setFeedbackStatus(message = "", tone = "") {
 function setShareStatus(message = "", tone = "") {
   elements.shareStatus.textContent = message;
   elements.shareStatus.className = `share-status${message ? "" : " hidden"}${tone ? ` is-${tone}` : ""}`;
+}
+
+function setAiExplainStatus(message = "", tone = "") {
+  elements.aiExplainStatus.textContent = message;
+  elements.aiExplainStatus.className = `field-help study-secondary-status${message ? "" : " hidden"}${tone ? ` is-${tone}` : ""}`;
 }
 
 function resetProfileUiState() {
@@ -490,6 +498,8 @@ function renderQuestion() {
   elements.emptyState.classList.toggle("hidden", showQuestion);
   elements.questionCard.classList.toggle("hidden", !showQuestion);
   elements.questionBadge.textContent = showQuestion ? "Ready to solve" : hasActiveProfile ? "Waiting" : "Pick a user";
+  elements.aiExplain.disabled = !showQuestion;
+  setAiExplainStatus("", "");
 
   if (!showQuestion) {
     return;
@@ -832,6 +842,24 @@ async function handleShareProgress() {
   }
 }
 
+async function handleAiExplain() {
+  if (!state.activeQuestion) {
+    return;
+  }
+
+  elements.aiExplain.disabled = true;
+  setAiExplainStatus("Opening ChatGPT...", "pending");
+
+  try {
+    const result = await openAiExplain(state.activeQuestion);
+    setAiExplainStatus(result.message, result.mode === "clipboard" ? "pending" : "success");
+  } catch (error) {
+    setAiExplainStatus(error instanceof Error ? error.message : "ChatGPT could not be opened.", "error");
+  } finally {
+    elements.aiExplain.disabled = false;
+  }
+}
+
 async function bootstrap() {
   state.catalog = await loadCatalog();
   state.profiles = await getProfiles();
@@ -905,6 +933,7 @@ elements.toggleSolution.addEventListener("click", () => {
   const hidden = elements.solutionPanel.classList.toggle("hidden");
   elements.toggleSolution.textContent = hidden ? "Reveal solution" : "Hide solution";
 });
+elements.aiExplain.addEventListener("click", handleAiExplain);
 
 elements.attemptForm.addEventListener("submit", handleAttemptSubmission);
 elements.feedbackForm.addEventListener("submit", handleFeedbackSubmission);
