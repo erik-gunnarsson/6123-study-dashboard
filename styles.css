@@ -282,6 +282,8 @@ button:disabled {
   display: grid;
   gap: 16px;
   align-self: start;
+  position: sticky;
+  top: 16px;
 }
 
 .panel,
@@ -303,11 +305,6 @@ button:disabled {
 
 #dashboard-view {
   gap: 12px;
-}
-
-.sidebar-panel {
-  position: sticky;
-  top: 16px;
 }
 
 .progression-card {
@@ -588,6 +585,13 @@ button:disabled {
 .field span {
   font-size: 0.88rem;
   font-weight: 600;
+  color: var(--muted);
+}
+
+.field-help {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.55;
   color: var(--muted);
 }
 

@@ -808,7 +808,6 @@ async function handleShareProgress() {
 
     if (navigator.share && navigator.canShare?.({ files: [file] })) {
       await navigator.share({
-        title: "6123 Study Dashboard",
         files: [file],
       });
       setShareStatus("Snapshot ready to share.", "success");

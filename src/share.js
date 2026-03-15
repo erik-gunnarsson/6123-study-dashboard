@@ -47,8 +47,8 @@ function faceMarkup(outcome, x, y, size) {
 
 function matrixMarkup(questionStatuses) {
   const columns = 10;
-  const size = 24;
-  const gap = 6;
+  const size = 32;
+  const gap = 8;
 
   return questionStatuses.map((question, index) => {
     const col = index % columns;
@@ -80,15 +80,15 @@ export function buildShareCardModel({ profileName, progression, questionStatuses
 
 export function renderShareCardSvg(model) {
   const columns = 10;
-  const size = 24;
-  const gap = 6;
+  const size = 32;
+  const gap = 8;
   const rows = Math.ceil(model.questionStatuses.length / columns);
   const matrixWidth = columns * size + (columns - 1) * gap;
   const matrixHeight = rows * size + Math.max(0, rows - 1) * gap;
   const width = 1080;
   const height = 1080;
   const matrixX = (width - matrixWidth) / 2;
-  const matrixY = 330;
+  const matrixY = 338;
   const cardInset = 28;
   const innerInset = 34;
   const bannerHeight = 86;
