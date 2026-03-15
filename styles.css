@@ -666,6 +666,41 @@ button:disabled {
   transition: width 260ms ease;
 }
 
+.share-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.share-button {
+  min-height: 34px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.share-status {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--muted);
+  text-align: right;
+}
+
+.share-status.is-success {
+  color: #166534;
+}
+
+.share-status.is-error {
+  color: #b42318;
+}
+
+.share-status.is-pending {
+  color: #0f766e;
+}
+
 .utility-content.stack {
   gap: 14px;
 }

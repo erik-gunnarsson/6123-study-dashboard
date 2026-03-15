@@ -3,6 +3,16 @@ import { access, readFile, stat } from "node:fs/promises";
 import http from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  fetchAdminDashboardData,
+  getAnalyticsConfig,
+  getAnalyticsPool,
+  getWindowDays,
+  insertAnalyticsEvent,
+  renderAdminDashboard,
+  validateAnalyticsPayload,
+  verifyAdminAuthHeader,
+} from "./src/serverAnalytics.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,6 +20,7 @@ const rootDir = __dirname;
 const port = Number(process.env.PORT || 4173);
 const feedbackWebhookUrl = process.env.DISCORD_FEEDBACK_WEBHOOK_URL || "";
 const maxFeedbackLength = 1200;
+let catalogQuestionCountPromise = null;
 
 const contentTypes = new Map([
   [".css", "text/css; charset=utf-8"],
@@ -48,6 +59,18 @@ function sendError(response, statusCode, message) {
 function sendJson(response, statusCode, payload) {
   response.writeHead(statusCode, { "Content-Type": "application/json; charset=utf-8" });
   response.end(JSON.stringify(payload));
+}
+
+async function getCatalogQuestionCount() {
+  if (!catalogQuestionCountPromise) {
+    const catalogPath = path.join(rootDir, "data", "question-catalog.json");
+    catalogQuestionCountPromise = readFile(catalogPath, "utf8")
+      .then((contents) => JSON.parse(contents))
+      .then((catalog) => catalog?.questions?.length ?? 0)
+      .catch(() => 0);
+  }
+
+  return catalogQuestionCountPromise;
 }
 
 function formatFeedbackMessage(payload) {
@@ -165,20 +188,104 @@ export async function handleFeedbackRequest(request, response, options = {}) {
   }
 }
 
+export async function handleAnalyticsRequest(request, response, options = {}) {
+  if (request.method !== "POST") {
+    sendJson(response, 405, { ok: false, error: "Method not allowed." });
+    return;
+  }
+
+  const contentType = request.headers["content-type"] || "";
+  if (!contentType.includes("application/json")) {
+    sendJson(response, 415, { ok: false, error: "Use application/json." });
+    return;
+  }
+
+  try {
+    const rawPayload = await readJsonBody(request);
+    const validation = validateAnalyticsPayload(rawPayload);
+
+    if (!validation.ok) {
+      sendJson(response, validation.statusCode, { ok: false, error: validation.error });
+      return;
+    }
+
+    const pool = options.pool ?? getAnalyticsPool(options.env);
+    if (!pool) {
+      sendJson(response, 202, { ok: true, skipped: true });
+      return;
+    }
+
+    await insertAnalyticsEvent(pool, validation.value);
+    sendJson(response, 202, { ok: true });
+  } catch (error) {
+    console.error("Analytics ingestion skipped.", error);
+    sendJson(response, 202, { ok: true, skipped: true });
+  }
+}
+
+export async function handleAdminDashboardRequest(request, response, options = {}) {
+  const authResult = verifyAdminAuthHeader(request.headers.authorization, options.env);
+
+  if (!authResult.ok) {
+    const headers = {
+      "Content-Type": "text/plain; charset=utf-8",
+    };
+
+    if (authResult.statusCode === 401) {
+      headers["WWW-Authenticate"] = 'Basic realm="6123 Study Dashboard Admin"';
+    }
+
+    response.writeHead(authResult.statusCode, headers);
+    response.end(authResult.error);
+    return;
+  }
+
+  const pool = options.pool ?? getAnalyticsPool(options.env);
+
+  if (!pool) {
+    sendError(response, 503, "Analytics database is not configured.");
+    return;
+  }
+
+  try {
+    const days = getWindowDays(request.url || "/admin", options.env);
+    const questionCount = options.questionCount ?? await getCatalogQuestionCount();
+    const dashboardData = await fetchAdminDashboardData(pool, { days, questionCount });
+    const html = renderAdminDashboard(dashboardData);
+    response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+    response.end(html);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Admin dashboard failed.";
+    sendError(response, 500, message);
+  }
+}
+
 export const server = http.createServer(async (request, response) => {
   if (!request.url) {
     sendError(response, 400, "Bad request");
     return;
   }
 
-  if (request.url === "/health") {
+  const pathname = new URL(request.url, "http://localhost").pathname;
+
+  if (pathname === "/health") {
     response.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
     response.end("ok");
     return;
   }
 
-  if (request.url === "/api/feedback") {
+  if (pathname === "/api/feedback") {
     await handleFeedbackRequest(request, response);
+    return;
+  }
+
+  if (pathname === "/api/analytics") {
+    await handleAnalyticsRequest(request, response);
+    return;
+  }
+
+  if (pathname === "/admin") {
+    await handleAdminDashboardRequest(request, response);
     return;
   }
 
@@ -212,7 +319,9 @@ export const server = http.createServer(async (request, response) => {
 export async function logStartupMessage() {
   const catalogPath = path.join(rootDir, "data", "question-catalog.json");
   const catalogStatus = (await readFile(catalogPath, "utf8").then(() => "loaded").catch(() => "missing"));
-  console.log(`StudyPrep dashboard listening on http://0.0.0.0:${port} (${catalogStatus} catalog)`);
+  const analyticsConfig = getAnalyticsConfig(process.env);
+  const analyticsStatus = analyticsConfig.analyticsEnabled ? "analytics on" : "analytics off";
+  console.log(`StudyPrep dashboard listening on http://0.0.0.0:${port} (${catalogStatus} catalog, ${analyticsStatus})`);
 }
 
 if (process.argv[1] === __filename) {

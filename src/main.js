@@ -1,4 +1,5 @@
 import { loadCatalog, buildSectionOptions, getQuestionById } from "./catalog.js";
+import { trackAnalyticsEvent } from "./analytics.js";
 import {
   getProfiles,
   saveProfile,
@@ -13,6 +14,7 @@ import {
   setQueueMode,
 } from "./storage.js";
 import { pickNextQuestion } from "./queue.js";
+import { buildShareCardModel, renderShareCardSvg, svgToPngBlob } from "./share.js";
 import { computeDashboardStats } from "./stats.js";
 import { createAttempt, createProfile } from "./types.js";
 
@@ -51,6 +53,8 @@ const elements = {
   nextLevelEmoji: document.querySelector("#next-level-emoji"),
   xpProgressFill: document.querySelector("#xp-progress-fill"),
   levelConfetti: document.querySelector("#level-confetti"),
+  shareProgress: document.querySelector("#share-progress"),
+  shareStatus: document.querySelector("#share-status"),
   feedbackForm: document.querySelector("#feedback-form"),
   feedbackMessage: document.querySelector("#feedback-message"),
   feedbackSubmit: document.querySelector("#feedback-submit"),
@@ -101,9 +105,28 @@ const elements = {
 let activeTooltipAnchor = null;
 let confettiTimeoutId = null;
 
+function trackForActiveProfile(eventType, metadata = {}, profileOverride = null) {
+  const profile = profileOverride ?? getActiveProfile();
+
+  if (!profile) {
+    return;
+  }
+
+  void trackAnalyticsEvent({
+    userId: profile.id,
+    eventType,
+    metadata,
+  });
+}
+
 function setFeedbackStatus(message = "", tone = "") {
   elements.feedbackStatus.textContent = message;
   elements.feedbackStatus.className = `feedback-status${message ? "" : " hidden"}${tone ? ` is-${tone}` : ""}`;
+}
+
+function setShareStatus(message = "", tone = "") {
+  elements.shareStatus.textContent = message;
+  elements.shareStatus.className = `share-status${message ? "" : " hidden"}${tone ? ` is-${tone}` : ""}`;
 }
 
 function resetProfileUiState() {
@@ -305,6 +328,10 @@ async function createAndActivateProfile(name) {
   state.attempts = [];
   resetProfileUiState();
   setActiveProfileId(profile.id);
+  trackForActiveProfile("profile_selected", {
+    profileName: profile.name,
+    source: "create_profile",
+  }, profile);
 }
 
 function openFirstQuestion() {
@@ -386,6 +413,10 @@ function renderProfiles() {
         setActiveProfileId(profile.id);
         state.attempts = await getAttemptsForProfile(profile.id);
         resetProfileUiState();
+        trackForActiveProfile("profile_selected", {
+          profileName: profile.name,
+          source: "profile_switch",
+        }, profile);
         render();
       });
       elements.profileList.appendChild(card);
@@ -658,6 +689,7 @@ function render() {
   elements.orderedNextQuestion.disabled = !activeProfile || getOrderedQuestions().length === 0;
   elements.resetProfile.disabled = !activeProfile;
   elements.feedbackSubmit.disabled = false;
+  elements.shareProgress.disabled = !activeProfile;
 }
 
 async function loadNextQuestion() {
@@ -696,6 +728,13 @@ async function handleAttemptSubmission(event) {
 
   await saveAttempt(attempt);
   state.attempts = [...state.attempts, attempt];
+  trackForActiveProfile("question_answered", {
+    questionId: state.activeQuestion.id,
+    questionTitle: state.activeQuestion.title,
+    outcome: attempt.outcome,
+    section: state.activeQuestion.section,
+    queueMode: state.queueMode,
+  });
   const nextStats = state.catalog ? computeDashboardStats(state.catalog, state.attempts) : null;
   state.levelUpBurst = Boolean(
     previousStats &&
@@ -735,11 +774,62 @@ async function handleFeedbackSubmission(event) {
     }
 
     elements.feedbackMessage.value = "";
+    trackForActiveProfile("feedback_sent", {
+      view: state.selectedView,
+      questionId: state.activeQuestion?.id ?? "",
+    });
     setFeedbackStatus("Sent to Erik. Thank you.", "success");
   } catch (error) {
     setFeedbackStatus(error instanceof Error ? error.message : "Feedback could not be sent.", "error");
   } finally {
     elements.feedbackSubmit.disabled = false;
+  }
+}
+
+async function handleShareProgress() {
+  if (!state.catalog || !getActiveProfile()) {
+    return;
+  }
+
+  elements.shareProgress.disabled = true;
+  setShareStatus("Preparing snapshot...", "pending");
+
+  try {
+    const stats = computeDashboardStats(state.catalog, state.attempts);
+    const model = buildShareCardModel({
+      profileName: getActiveProfile()?.name ?? "",
+      progression: stats.progression,
+      questionStatuses: stats.questionStatuses,
+    });
+    const svgMarkup = renderShareCardSvg(model);
+    const pngBlob = await svgToPngBlob(svgMarkup);
+    const fileName = `${model.profileName.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "studyprep"}-progress.png`;
+    const file = new File([pngBlob], fileName, { type: "image/png" });
+
+    if (navigator.share && navigator.canShare?.({ files: [file] })) {
+      await navigator.share({
+        title: "6123 Study Dashboard",
+        files: [file],
+      });
+      setShareStatus("Snapshot ready to share.", "success");
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(pngBlob);
+    const link = document.createElement("a");
+    link.href = objectUrl;
+    link.download = fileName;
+    link.click();
+    URL.revokeObjectURL(objectUrl);
+    setShareStatus("Snapshot downloaded for sharing.", "success");
+  } catch (error) {
+    if (error instanceof Error && error.name === "AbortError") {
+      setShareStatus("", "");
+    } else {
+      setShareStatus("Snapshot could not be generated.", "error");
+    }
+  } finally {
+    elements.shareProgress.disabled = false;
   }
 }
 
@@ -754,6 +844,13 @@ async function bootstrap() {
 
   if (state.activeProfileId) {
     state.attempts = await getAttemptsForProfile(state.activeProfileId);
+    const activeProfile = getActiveProfile();
+    if (activeProfile) {
+      trackForActiveProfile("profile_selected", {
+        profileName: activeProfile.name,
+        source: "app_bootstrap",
+      }, activeProfile);
+    }
   }
 
   render();
@@ -812,6 +909,7 @@ elements.toggleSolution.addEventListener("click", () => {
 
 elements.attemptForm.addEventListener("submit", handleAttemptSubmission);
 elements.feedbackForm.addEventListener("submit", handleFeedbackSubmission);
+elements.shareProgress.addEventListener("click", handleShareProgress);
 
 elements.tabs.forEach((tab) => {
   tab.addEventListener("click", () => setView(tab.dataset.view));
