@@ -9,6 +9,7 @@ import {
 } from "../server.js";
 import {
   fetchAdminDashboardData,
+  renderAdminDashboard,
   verifyAdminAuthHeader,
   validateAnalyticsPayload,
 } from "../src/serverAnalytics.js";
@@ -210,4 +211,29 @@ test("admin dashboard requires authentication", async () => {
 
   assert.equal(response.statusCode, 401);
   assert.match(response.body, /Authentication required/);
+});
+
+test("admin dashboard renders chart panels", () => {
+  const html = renderAdminDashboard({
+    days: 10,
+    since: new Date("2026-03-01T00:00:00Z"),
+    questionCount: 66,
+    dau: [
+      { day: "2026-03-01", dau: 2 },
+      { day: "2026-03-02", dau: 4 },
+    ],
+    questionsPerUserPerDay: [
+      { day: "2026-03-01", userId: "profile-1", questions: 3 },
+      { day: "2026-03-02", userId: "profile-1", questions: 6 },
+    ],
+    dayOverDayRetention: [],
+    sessionsPerUserPerDay: [],
+    completionByUser: [],
+    dropoffByUser: [{ userId: "profile-1", lastSeen: "2026-03-02" }],
+    leaderboard: [],
+  });
+
+  assert.match(html, /Daily Active Users Trend/);
+  assert.match(html, /Questions Answered Per Day/);
+  assert.match(html, /<svg class="chart-svg"/);
 });

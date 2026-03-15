@@ -41,5 +41,7 @@ test("share card svg includes core share content", () => {
   assert.match(svg, /Level 8/);
   assert.match(svg, /336 XP earned/);
   assert.match(svg, /6123 Study Dashboard/);
-  assert.match(svg, /PROGRESS MAP/);
+  assert.match(svg, /width="1080"/);
+  assert.match(svg, /height="1080"/);
+  assert.match(svg, /fill="#10766E"/);
 });

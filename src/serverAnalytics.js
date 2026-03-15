@@ -95,6 +95,153 @@ function renderTable(headers, rows, emptyCopy) {
   return `<div class="table-wrap"><table><thead><tr>${headerMarkup}</tr></thead><tbody>${rowMarkup}</tbody></table></div>`;
 }
 
+function buildDailySeries(rows, valueKey, days, since) {
+  const valuesByDay = new Map(rows.map((row) => [row.day, Number(row[valueKey] ?? 0)]));
+  const series = [];
+
+  for (let index = 0; index < days; index += 1) {
+    const day = new Date(since);
+    day.setUTCDate(day.getUTCDate() + index);
+    const key = formatDay(day);
+    series.push({
+      day: key,
+      value: valuesByDay.get(key) ?? 0,
+    });
+  }
+
+  return series;
+}
+
+function sumByDay(rows, valueKey) {
+  const totals = new Map();
+
+  rows.forEach((row) => {
+    const current = totals.get(row.day) ?? 0;
+    totals.set(row.day, current + Number(row[valueKey] ?? 0));
+  });
+
+  return [...totals.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([day, value]) => ({ day, value }));
+}
+
+function renderLineChart({ title, subtitle, series, color = "#0f766e" }) {
+  if (series.length === 0) {
+    return `
+      <section class="panel chart-panel">
+        <div class="chart-copy">
+          <h2>${escapeHtml(title)}</h2>
+          <p>${escapeHtml(subtitle)}</p>
+        </div>
+        <div class="empty-card">No chart data yet.</div>
+      </section>
+    `;
+  }
+
+  const width = 760;
+  const height = 240;
+  const padding = { top: 20, right: 20, bottom: 40, left: 44 };
+  const plotWidth = width - padding.left - padding.right;
+  const plotHeight = height - padding.top - padding.bottom;
+  const maxValue = Math.max(...series.map((point) => point.value), 1);
+  const stepX = series.length > 1 ? plotWidth / (series.length - 1) : 0;
+  const points = series.map((point, index) => {
+    const x = padding.left + (series.length > 1 ? stepX * index : plotWidth / 2);
+    const y = padding.top + plotHeight - ((point.value / maxValue) * plotHeight);
+    return { ...point, x, y };
+  });
+  const polyline = points.map((point) => `${point.x},${point.y}`).join(" ");
+  const areaPath = [
+    `M ${points[0].x} ${padding.top + plotHeight}`,
+    ...points.map((point, index) => `${index === 0 ? "L" : "L"} ${point.x} ${point.y}`),
+    `L ${points[points.length - 1].x} ${padding.top + plotHeight}`,
+    "Z",
+  ].join(" ");
+  const yTicks = 4;
+  const gridLines = Array.from({ length: yTicks + 1 }, (_, index) => {
+    const value = Math.round((maxValue / yTicks) * (yTicks - index));
+    const y = padding.top + ((plotHeight / yTicks) * index);
+    return { value, y };
+  });
+
+  return `
+    <section class="panel chart-panel">
+      <div class="chart-copy">
+        <h2>${escapeHtml(title)}</h2>
+        <p>${escapeHtml(subtitle)}</p>
+      </div>
+      <svg class="chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(title)}">
+        ${gridLines.map((tick) => `
+          <line x1="${padding.left}" y1="${tick.y}" x2="${width - padding.right}" y2="${tick.y}" stroke="#e2e8f0" stroke-width="1" />
+          <text x="${padding.left - 10}" y="${tick.y + 4}" text-anchor="end" class="chart-axis">${tick.value}</text>
+        `).join("")}
+        <path d="${areaPath}" fill="${color}" opacity="0.12"></path>
+        <polyline fill="none" stroke="${color}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" points="${polyline}"></polyline>
+        ${points.map((point) => `
+          <circle cx="${point.x}" cy="${point.y}" r="4.5" fill="${color}"></circle>
+          <text x="${point.x}" y="${height - 12}" text-anchor="middle" class="chart-axis">${escapeHtml(point.day.slice(5))}</text>
+        `).join("")}
+      </svg>
+    </section>
+  `;
+}
+
+function renderBarChart({ title, subtitle, series, color = "#2563eb" }) {
+  if (series.length === 0) {
+    return `
+      <section class="panel chart-panel">
+        <div class="chart-copy">
+          <h2>${escapeHtml(title)}</h2>
+          <p>${escapeHtml(subtitle)}</p>
+        </div>
+        <div class="empty-card">No chart data yet.</div>
+      </section>
+    `;
+  }
+
+  const width = 760;
+  const height = 240;
+  const padding = { top: 20, right: 20, bottom: 40, left: 44 };
+  const plotWidth = width - padding.left - padding.right;
+  const plotHeight = height - padding.top - padding.bottom;
+  const maxValue = Math.max(...series.map((point) => point.value), 1);
+  const gap = 10;
+  const barWidth = Math.max(16, (plotWidth - (Math.max(series.length - 1, 0) * gap)) / Math.max(series.length, 1));
+  const yTicks = 4;
+  const gridLines = Array.from({ length: yTicks + 1 }, (_, index) => {
+    const value = Math.round((maxValue / yTicks) * (yTicks - index));
+    const y = padding.top + ((plotHeight / yTicks) * index);
+    return { value, y };
+  });
+
+  return `
+    <section class="panel chart-panel">
+      <div class="chart-copy">
+        <h2>${escapeHtml(title)}</h2>
+        <p>${escapeHtml(subtitle)}</p>
+      </div>
+      <svg class="chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(title)}">
+        ${gridLines.map((tick) => `
+          <line x1="${padding.left}" y1="${tick.y}" x2="${width - padding.right}" y2="${tick.y}" stroke="#e2e8f0" stroke-width="1" />
+          <text x="${padding.left - 10}" y="${tick.y + 4}" text-anchor="end" class="chart-axis">${tick.value}</text>
+        `).join("")}
+        ${series.map((point, index) => {
+          const heightRatio = point.value / maxValue;
+          const barHeight = Math.max(2, plotHeight * heightRatio);
+          const x = padding.left + (index * (barWidth + gap));
+          const y = padding.top + plotHeight - barHeight;
+
+          return `
+            <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="8" fill="${color}"></rect>
+            <text x="${x + (barWidth / 2)}" y="${y - 8}" text-anchor="middle" class="chart-value">${point.value}</text>
+            <text x="${x + (barWidth / 2)}" y="${height - 12}" text-anchor="middle" class="chart-axis">${escapeHtml(point.day.slice(5))}</text>
+          `;
+        }).join("")}
+      </svg>
+    </section>
+  `;
+}
+
 function getCompletionRows(rows, totalQuestions) {
   return rows.map((row) => {
     const completionRate = totalQuestions === 0 ? 0 : Math.round((row.distinctAnswered / totalQuestions) * 100);
@@ -423,6 +570,20 @@ export function renderAdminDashboard(data) {
   const completionRows = getCompletionRows(data.completionByUser, data.questionCount);
   const dropoffRows = data.dropoffByUser.map((row) => [row.userId, row.lastSeen]);
   const leaderboardRows = data.leaderboard.map((row) => [row.userId, row.totalQuestions]);
+  const dailyActiveSeries = buildDailySeries(data.dau, "dau", data.days, data.since);
+  const questionsByDaySeries = buildDailySeries(sumByDay(data.questionsPerUserPerDay, "questions"), "value", data.days, data.since);
+  const lineChart = renderLineChart({
+    title: "Daily Active Users Trend",
+    subtitle: "Line chart of distinct active learners across the beta window.",
+    series: dailyActiveSeries,
+    color: "#0f766e",
+  });
+  const barChart = renderBarChart({
+    title: "Questions Answered Per Day",
+    subtitle: "Bar chart of total answered-question events per day.",
+    series: questionsByDaySeries,
+    color: "#2563eb",
+  });
 
   return `<!doctype html>
 <html lang="en">
@@ -476,6 +637,12 @@ export function renderAdminDashboard(data) {
       }
       .summary-grid {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        margin-bottom: 24px;
+      }
+      .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 16px;
         margin-bottom: 24px;
       }
       .panel-grid {
@@ -536,6 +703,32 @@ export function renderAdminDashboard(data) {
         text-decoration: none;
         font-weight: 600;
       }
+      .chart-panel {
+        padding-bottom: 14px;
+      }
+      .chart-copy {
+        margin-bottom: 10px;
+      }
+      .chart-copy p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .chart-svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .chart-axis {
+        fill: var(--muted);
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .chart-value {
+        fill: var(--text);
+        font-size: 11px;
+        font-weight: 700;
+      }
       @media (max-width: 720px) {
         header { align-items: start; flex-direction: column; }
       }
@@ -552,6 +745,10 @@ export function renderAdminDashboard(data) {
       </header>
 
       <section class="summary-grid">${summaryCards}</section>
+      <section class="chart-grid">
+        ${lineChart}
+        ${barChart}
+      </section>
 
       <section class="panel-grid">
         <section class="panel">

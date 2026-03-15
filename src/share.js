@@ -47,8 +47,8 @@ function faceMarkup(outcome, x, y, size) {
 
 function matrixMarkup(questionStatuses) {
   const columns = 10;
-  const size = 28;
-  const gap = 8;
+  const size = 24;
+  const gap = 6;
 
   return questionStatuses.map((question, index) => {
     const col = index % columns;
@@ -80,28 +80,32 @@ export function buildShareCardModel({ profileName, progression, questionStatuses
 
 export function renderShareCardSvg(model) {
   const columns = 10;
-  const size = 28;
-  const gap = 8;
+  const size = 24;
+  const gap = 6;
   const rows = Math.ceil(model.questionStatuses.length / columns);
   const matrixWidth = columns * size + (columns - 1) * gap;
   const matrixHeight = rows * size + Math.max(0, rows - 1) * gap;
-  const width = 760;
-  const height = 270 + matrixHeight;
+  const width = 1080;
+  const height = 1080;
+  const matrixX = (width - matrixWidth) / 2;
+  const matrixY = 330;
+  const cardInset = 28;
+  const innerInset = 34;
+  const bannerHeight = 86;
 
   return `
     <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-      <rect width="${width}" height="${height}" rx="28" fill="#f5f7fa" />
-      <rect x="18" y="18" width="${width - 36}" height="${height - 36}" rx="24" fill="#ffffff" />
-      <text x="54" y="76" font-family="Manrope, system-ui, sans-serif" font-size="24" font-weight="700" fill="#111827">${escapeXml(model.profileName)}</text>
-      <text x="54" y="132" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="54">${escapeXml(model.currentEmoji)}</text>
-      <text x="122" y="118" font-family="Space Grotesk, Manrope, sans-serif" font-size="28" font-weight="700" fill="#111827">${escapeXml(model.currentLabel)}</text>
-      <text x="122" y="152" font-family="Manrope, system-ui, sans-serif" font-size="20" fill="#667085">${escapeXml(`${model.xp} XP earned`)}</text>
-      <text x="54" y="205" font-family="Space Grotesk, Manrope, sans-serif" font-size="18" font-weight="700" letter-spacing="0.08em" fill="#667085">PROGRESS MAP</text>
-      <g transform="translate(54 224)">
+      <rect width="${width}" height="${height}" rx="40" fill="#f3f6f9" />
+      <rect x="${cardInset}" y="${cardInset}" width="${width - (cardInset * 2)}" height="${height - (cardInset * 2)}" rx="34" fill="#ffffff" />
+      <text x="${width / 2}" y="132" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-size="44" font-weight="800" fill="#111827">${escapeXml(model.profileName)}</text>
+      <text x="${width / 2}" y="222" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" font-size="88">${escapeXml(model.currentEmoji)}</text>
+      <text x="${width / 2}" y="272" text-anchor="middle" font-family="Space Grotesk, Manrope, sans-serif" font-size="34" font-weight="700" fill="#111827">${escapeXml(model.currentLabel)}</text>
+      <text x="${width / 2}" y="308" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-size="24" fill="#667085">${escapeXml(`${model.xp} XP earned`)}</text>
+      <g transform="translate(${matrixX} ${matrixY})">
         ${matrixMarkup(model.questionStatuses)}
       </g>
-      <rect x="36" y="${height - 68}" width="${width - 72}" height="34" rx="17" fill="#eff6ff" />
-      <text x="${width / 2}" y="${height - 45}" text-anchor="middle" font-family="Space Grotesk, Manrope, sans-serif" font-size="16" font-weight="700" fill="#1d4ed8">6123 Study Dashboard</text>
+      <rect x="${innerInset}" y="${height - innerInset - bannerHeight}" width="${width - (innerInset * 2)}" height="${bannerHeight}" rx="26" fill="#10766E" />
+      <text x="${width / 2}" y="${height - innerInset - 34}" text-anchor="middle" font-family="Space Grotesk, Manrope, sans-serif" font-size="28" font-weight="700" fill="#ffffff">6123 Study Dashboard</text>
     </svg>
   `.trim();
 }
