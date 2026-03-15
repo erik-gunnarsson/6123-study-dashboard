@@ -515,7 +515,7 @@ function renderQuestion() {
   elements.solutionText.textContent = question.solutionText;
   elements.solutionPanel.classList.add("hidden");
   elements.toggleSolution.textContent = "Reveal solution";
-  elements.attemptNote.value = "";
+  elements.attemptNote.value = latestAttempt?.note ?? "";
 }
 
 function renderDashboard() {
