@@ -13,7 +13,9 @@ from pypdf import PdfReader
 ROOT = Path(__file__).resolve().parent.parent
 WORKBOOK_PATH = ROOT / "exercise handbook solutions.xlsx"
 PDF_PATH = ROOT / "exercise_handbook_2023_24.pdf"
+QUIZ_MARKDOWN_PATH = ROOT / "data" / "6123-canva-quiz-questions.md"
 OUTPUT_PATH = ROOT / "data" / "question-catalog.json"
+CANVAS_QUIZ_URL = "https://sse.instructure.com/courses/2658/quizzes"
 NS = {
     "a": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
     "r": "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
@@ -120,6 +122,115 @@ def compact_problem_lines(lines: list[str], subtopic: str | None) -> str:
     return "\n".join(compacted)
 
 
+def normalize_markdown_line(raw_line: str) -> str:
+    line = raw_line.replace("\u00a0", " ").strip()
+    line = re.sub(r"(?<=[A-Za-z€$£%])(?=\d)", " ", line)
+    line = re.sub(r"(?<=[\d%])(?=[A-Z])", "\n", line)
+    return "\n".join(" ".join(part.split()) for part in line.splitlines() if part.strip())
+
+
+def parse_quiz_question_block(section_id: str, quiz_label: str, question_number: int, block: str) -> dict:
+    cleaned_lines = []
+    saw_option = False
+    stop_block = False
+
+    for raw_line in block.splitlines():
+        if stop_block:
+            break
+
+        line = normalize_markdown_line(raw_line)
+
+        for logical_line in line.splitlines():
+            if (
+                not logical_line
+                or re.fullmatch(r"\*\*\d+\s*/\s*\d+\s*pts\*\*", logical_line)
+                or logical_line in {"Correct answer", "Wrong answer"}
+            ):
+                continue
+
+            if saw_option and re.fullmatch(r"[A-D]", logical_line):
+                stop_block = True
+                break
+
+            if re.fullmatch(r"[A-D]\)\s+.+", logical_line):
+                saw_option = True
+                cleaned_lines.append(logical_line)
+                continue
+
+            cleaned_lines.append(logical_line)
+
+    if not cleaned_lines:
+        raise RuntimeError(f"Malformed quiz question block in {section_id}: Question {question_number} is empty.")
+
+    return {
+        "id": f"{section_id}-q{question_number}",
+        "source": "quiz",
+        "section": section_id,
+        "sectionLabel": quiz_label,
+        "sectionNumber": 7 + int(section_id.split("-")[1]),
+        "title": f"{quiz_label} Question {question_number}",
+        "prompt": "\n".join(cleaned_lines),
+        "promptStatus": "quiz",
+        "sourceRef": f"{QUIZ_MARKDOWN_PATH.name} · {quiz_label} · Question {question_number}",
+        "solutionRef": "Canvas quizzes",
+        "solutionText": "Self-check this quiz question in Canvas after you attempt it.",
+        "solutionUrl": CANVAS_QUIZ_URL,
+        "tags": [quiz_label, "Canvas Quiz"],
+    }
+
+
+def parse_quiz_markdown() -> tuple[list[dict], list[dict]]:
+    if not QUIZ_MARKDOWN_PATH.exists():
+        raise RuntimeError(f"Quiz markdown file is missing: {QUIZ_MARKDOWN_PATH}")
+
+    text = QUIZ_MARKDOWN_PATH.read_text(encoding="utf-8")
+    quiz_headers = list(re.finditer(r"^##\s+(Quiz\s+\d+)\s*$", text, re.MULTILINE))
+
+    if not quiz_headers:
+        raise RuntimeError("No quiz sections found in the quiz markdown file.")
+
+    sections = []
+    questions = []
+
+    for index, header in enumerate(quiz_headers):
+        quiz_label = header.group(1)
+        quiz_number = int(re.search(r"(\d+)$", quiz_label).group(1))
+        chunk_start = header.end()
+        chunk_end = quiz_headers[index + 1].start() if index + 1 < len(quiz_headers) else len(text)
+        quiz_chunk = text[chunk_start:chunk_end]
+        question_headers = list(re.finditer(r"^\*\*Question\s+(\d+)\*\*\s*$", quiz_chunk, re.MULTILINE))
+
+        if not question_headers:
+            continue
+
+        section_id = f"quiz-{quiz_number}"
+        sections.append(
+            {
+                "id": section_id,
+                "label": quiz_label,
+                "number": 7 + quiz_number,
+                "theme": "Canvas Quiz",
+                "tags": [quiz_label, "Canvas Quiz"],
+            }
+        )
+
+        for question_index, question_header in enumerate(question_headers):
+            question_number = int(question_header.group(1))
+            block_start = question_header.end()
+            block_end = (
+                question_headers[question_index + 1].start()
+                if question_index + 1 < len(question_headers)
+                else len(quiz_chunk)
+            )
+            question_block = quiz_chunk[block_start:block_end]
+            questions.append(parse_quiz_question_block(section_id, quiz_label, question_number, question_block))
+
+    if not questions:
+        raise RuntimeError("Quiz markdown file was found, but no quiz questions could be parsed.")
+
+    return sections, questions
+
+
 def parse_pdf_problem_blocks() -> list[dict]:
     reader = PdfReader(str(PDF_PATH), strict=False)
     problem_blocks = []
@@ -178,6 +289,7 @@ def main() -> None:
     questions = []
     pdf_problem_blocks = parse_pdf_problem_blocks()
     pdf_index = 0
+    quiz_sections, quiz_questions = parse_quiz_markdown()
 
     with zipfile.ZipFile(WORKBOOK_PATH) as archive:
         shared_strings = load_shared_strings(archive)
@@ -270,12 +382,15 @@ def main() -> None:
             f"Unused PDF problem blocks remain after build: consumed {pdf_index} of {len(pdf_problem_blocks)}."
         )
 
+    sections.extend(quiz_sections)
+    questions.extend(quiz_questions)
+
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(
         json.dumps(
             {
                 "version": 1,
-                "generatedFrom": [WORKBOOK_PATH.name, PDF_PATH.name],
+                "generatedFrom": [WORKBOOK_PATH.name, PDF_PATH.name, QUIZ_MARKDOWN_PATH.name],
                 "generatedAt": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
                 "sections": sorted(sections, key=lambda section: section["number"]),
                 "questions": questions,

@@ -22,6 +22,8 @@ const SECTION_MARKER = {
   "part-5": "#eab308",
   "part-6": "#ec4899",
   "part-7": "#6366f1",
+  "quiz-1": "#64748b",
+  "quiz-2": "#0891b2",
 };
 
 function faceMarkup(outcome, x, y, size) {

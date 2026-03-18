@@ -44,49 +44,56 @@
           <h1>Study handbook questions with minimal friction.</h1>
           <p id="catalog-summary" class="hero-copy">Loading question catalog...</p>
         </div>
-        <details class="utility-drawer">
-          <summary>
-            <span>Settings</span>
-            <span class="drawer-caret" aria-hidden="true"></span>
-          </summary>
-          <div class="utility-content stack">
-            <section class="settings-group">
-              <div class="section-heading settings-heading">
-                <h2>Profiles</h2>
-                <span class="pill" id="profile-count">0 users</span>
-              </div>
-              <div id="profile-list" class="profile-list"></div>
-              <form id="profile-form" class="inline-form compact-form">
-                <input id="profile-name" name="profileName" type="text" maxlength="40" placeholder="Add a learner name" required />
-                <button type="submit">Add</button>
-              </form>
-            </section>
-
-            <section class="settings-group">
-              <div class="section-heading settings-heading">
-                <h2>Progress</h2>
-              </div>
-              <div class="button-row wrap">
-                <button id="export-data" type="button">Export</button>
-                <label class="button-like">
-                  Import
-                  <input id="import-data" type="file" accept="application/json" hidden />
-                </label>
-              </div>
-              <button id="reset-profile" class="danger-button" type="button">Reset active profile</button>
-            </section>
-
-            <section class="settings-group">
-              <div class="section-heading settings-heading">
-                <h2>Source Files</h2>
-              </div>
-              <div class="button-row wrap">
-                <a class="button-like subtle" href="./exercise_handbook_2023_24.pdf" target="_blank" rel="noreferrer">Handbook PDF</a>
-                <a class="button-like subtle" href="./exercise%20handbook%20solutions.xlsx" target="_blank" rel="noreferrer">Solutions XLSX</a>
-              </div>
-            </section>
+        <div class="topbar-actions">
+          <div class="update-bubble" aria-label="Latest update">
+            <span class="update-bubble-date">UPDATED: Mar 18</span>
+            <strong>Canvas Quiz 1-2 added!</strong>
           </div>
-        </details>
+
+          <details class="utility-drawer">
+            <summary>
+              <span>Settings</span>
+              <span class="drawer-caret" aria-hidden="true"></span>
+            </summary>
+            <div class="utility-content stack">
+              <section class="settings-group">
+                <div class="section-heading settings-heading">
+                  <h2>Profiles</h2>
+                  <span class="pill" id="profile-count">0 users</span>
+                </div>
+                <div id="profile-list" class="profile-list"></div>
+                <form id="profile-form" class="inline-form compact-form">
+                  <input id="profile-name" name="profileName" type="text" maxlength="40" placeholder="Add a learner name" required />
+                  <button type="submit">Add</button>
+                </form>
+              </section>
+
+              <section class="settings-group">
+                <div class="section-heading settings-heading">
+                  <h2>Progress</h2>
+                </div>
+                <div class="button-row wrap">
+                  <button id="export-data" type="button">Export</button>
+                  <label class="button-like">
+                    Import
+                    <input id="import-data" type="file" accept="application/json" hidden />
+                  </label>
+                </div>
+                <button id="reset-profile" class="danger-button" type="button">Reset active profile</button>
+              </section>
+
+              <section class="settings-group">
+                <div class="section-heading settings-heading">
+                  <h2>Source Files</h2>
+                </div>
+                <div class="button-row wrap">
+                  <a class="button-like subtle" href="./exercise_handbook_2023_24.pdf" target="_blank" rel="noreferrer">Handbook PDF</a>
+                  <a class="button-like subtle" href="./exercise%20handbook%20solutions.xlsx" target="_blank" rel="noreferrer">Solutions XLSX</a>
+                </div>
+              </section>
+            </div>
+          </details>
+        </div>
       </header>
 
       <main class="app-grid">
@@ -213,7 +220,10 @@
               <section id="solution-panel" class="solution-panel hidden">
                 <div class="section-heading">
                   <h4>Solution reference</h4>
-                  <span id="solution-ref" class="pill subtle"></span>
+                  <div class="solution-panel-links">
+                    <span id="solution-ref" class="pill subtle"></span>
+                    <a id="solution-link" class="button-like subtle solution-link hidden" target="_blank" rel="noreferrer">Open</a>
+                  </div>
                 </div>
                 <pre id="solution-text"></pre>
               </section>

@@ -90,6 +90,7 @@ const elements = {
   aiExplainStatus: document.querySelector("#ai-explain-status"),
   solutionPanel: document.querySelector("#solution-panel"),
   solutionRef: document.querySelector("#solution-ref"),
+  solutionLink: document.querySelector("#solution-link"),
   solutionText: document.querySelector("#solution-text"),
   attemptForm: document.querySelector("#attempt-form"),
   attemptNote: document.querySelector("#attempt-note"),
@@ -284,12 +285,17 @@ function getSectionBadgeClass(sectionValue) {
     return "";
   }
 
-  if (sectionValue.startsWith("part-")) {
+  if (sectionValue.startsWith("part-") || sectionValue.startsWith("quiz-")) {
     return `section-badge ${sectionValue}`;
   }
 
   const match = sectionValue.match(/Part\s+(\d+)/i);
-  return match ? `section-badge part-${match[1]}` : "";
+  if (match) {
+    return `section-badge part-${match[1]}`;
+  }
+
+  const quizMatch = sectionValue.match(/Quiz\s+(\d+)/i);
+  return quizMatch ? `section-badge quiz-${quizMatch[1]}` : "";
 }
 
 function getSectionMatrixColors(section) {
@@ -301,6 +307,8 @@ function getSectionMatrixColors(section) {
     "part-5": { marker: "#eab308" },
     "part-6": { marker: "#ec4899" },
     "part-7": { marker: "#6366f1" },
+    "quiz-1": { marker: "#64748b" },
+    "quiz-2": { marker: "#0891b2" },
   };
 
   return palette[section] ?? { marker: "#9ca3af" };
@@ -522,6 +530,13 @@ function renderQuestion() {
   elements.questionPromptNote.textContent = promptNote;
   elements.questionPromptNote.classList.toggle("hidden", !promptNote);
   elements.solutionRef.textContent = question.solutionRef;
+  if (question.solutionUrl) {
+    elements.solutionLink.href = question.solutionUrl;
+    elements.solutionLink.classList.remove("hidden");
+  } else {
+    elements.solutionLink.removeAttribute("href");
+    elements.solutionLink.classList.add("hidden");
+  }
   elements.solutionText.textContent = question.solutionText;
   elements.solutionPanel.classList.add("hidden");
   elements.toggleSolution.textContent = "Reveal solution";
